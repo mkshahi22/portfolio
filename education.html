@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education -mk shahi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: #121212;
+            color: #fff;
+            text-align: center;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background 0.3s ease-in-out;
+        }
+
+        nav h2 {
+            font-size: 26px;
+            font-weight: bold;
+            color: #ff5733;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            padding: 5px 10px;
+            transition: color 0.3s ease-in-out;
+            position: relative;
+        }
+
+        /* Hover Effect on Navbar */
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background: #ff5733;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+        }
+
+        nav ul li a:hover {
+            color: #ff5733;
+        }
+
+        /* Education Section */
+        .education {
+            padding: 100px 50px;
+            margin-top: 80px;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: #ff5733;
+            transform: translateX(-50%);
+        }
+
+        .timeline-content {
+            background: rgba(255, 87, 51, 0.1);
+            padding: 20px;
+            border-radius: 5px;
+            width: 45%;
+            position: relative;
+            text-align: left;
+            transform: scale(0.9);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 55%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+        }
+
+        .timeline-content h3 {
+            color: #ff5733;
+            font-size: 22px;
+        }
+
+        .timeline-content p {
+            color: #bbb;
+            font-size: 16px;
+        }
+        
+        .timeline-content i {
+            font-size: 25px;
+            color: #ff5733;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h2>Portfolio</h2>
+        <ul>
+            <li><a href="http://127.0.0.1:5500/index.html">Home</a></li>
+            <li><a href="http://127.0.0.1:5500/about.html">About</a></li>
+            <li><a href="http://127.0.0.1:5500/education.html">Education</a></li>
+            <li><a href="http://127.0.0.1:5500/project.html">Projects</a></li>
+            <li><a href="http://127.0.0.1:5500/skill.html">Skills</a></li>
+            <li><a href="http://127.0.0.1:5500/contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <section class="education">
+        <h1>Education & Certifications</h1>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3><i class="fas fa-graduation-cap"></i>B.Tech in Computer Science</h3>
+                    <p>Galgotias University | 2024 - 2027</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3><i class="fas fa-university"></i>Diploma in Computer Science</h3>
+                    <p>2021 - 2024</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3><i class="fas fa-code"></i>Android App Development</h3>
+                    <p>Udemy | 2025</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3><i class="fas fa-laptop-code"></i>Responsive Web Design</h3>
+                    <p>FreeCodeCamp | Jan 2025</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3><i class="fas fa-database"></i>Java & MySQL</h3>
+                    <p>Guvi | Nov 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            gsap.from("nav", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
+
+            gsap.utils.toArray(".timeline-item").forEach(item => {
+                gsap.to(item, {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 1,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: item,
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
