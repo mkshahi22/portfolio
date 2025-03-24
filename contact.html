@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - mk shahi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #121212;
+            color: #fff;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background 0.3s ease-in-out;
+        }
+
+        nav h2 {
+            font-size: 26px;
+            font-weight: bold;
+            color: #ff5733;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            padding: 5px 10px;
+            transition: color 0.3s ease-in-out;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background: #ff5733;
+            transition: all 0.3s ease-in-out;
+            transform: translateX(-50%);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        nav ul li a:hover {
+            color: #ff5733;
+        }
+
+        /* Contact Section */
+        .contact {
+            max-width: 700px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(0, 123, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.3);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .contact:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 0px 15px rgba(0, 123, 255, 0.5);
+        }
+
+        .contact h1 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            color: #bbb;
+        }
+
+        .contact-info i {
+            font-size: 20px;
+            color: #007bff;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #007bff;
+            background: rgba(0, 123, 255, 0.1);
+            color: white;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+        }
+
+        .contact-form input:focus, .contact-form textarea:focus {
+            transform: scale(1.05);
+            box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
+            background: rgba(0, 123, 255, 0.2);
+        }
+
+        .contact-form button {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            border-radius: 8px;
+        }
+
+        .contact-form button:hover {
+            background: linear-gradient(45deg, #0056b3, #007bff);
+            transform: scale(1.1);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            margin-top: 15px;
+            color: lightgreen;
+            font-size: 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h2>Portfolio</h2>
+        <ul>
+            <li><a href="http://127.0.0.1:5500/index.html">Home</a></li>
+            <li><a href="http://127.0.0.1:5500/about.html">About</a></li>
+            <li><a href="http://127.0.0.1:5500/education.html">Education</a></li>
+            <li><a href="http://127.0.0.1:5500/project.html">Projects</a></li>
+            <li><a href="http://127.0.0.1:5500/skill.html">Skills</a></li>
+            <li><a href="http://127.0.0.1:5500/contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="contact">
+        <h1>Contact Me</h1>
+        <div class="contact-info">
+            <div><i class="fas fa-envelope"></i>Mkshahi9798@gmail.com</div>
+            <div><i class="fas fa-phone"></i> +91 9798743248</div>
+            <div><i class="fas fa-map-marker-alt"></i> New Delhi, India</div>
+        </div>
+
+        <form id="contact-form" class="contact-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <input type="text" id="subject" placeholder="Subject" required>
+            <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+            <div class="success-message">Message Sent Successfully!</div>
+        </form>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        document.getElementById("submitBtn").addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent default form submission
+        
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let message = document.getElementById("message").value.trim();
+        
+            // Check for empty fields
+            if (!name || !email || !message) {
+                alert("Please fill all the fields.");
+                return;
+            }
+        
+            fetch('https://script.google.com/macros/s/AKfycbxpGN_-sKv9ZhbRGhLr_IWYtmQwyv2QSv9dGuzZ7w0Q/dev', {  
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: name,
+                    email: email,
+                    message: message
+                })
+            })
+            .then(response => response.json()) 
+            .then(data => {
+                if (data.status === "success") {
+                    alert("Form submitted successfully!");
+                    document.getElementById("name").value = "";
+                    document.getElementById("email").value = "";
+                    document.getElementById("message").value = "";
+                } else {
+                    alert("Error submitting form: " + data.message);
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Something went wrong. Please try again.");
+            });
+        });
+          
+    </script>
+</body>
+</html>

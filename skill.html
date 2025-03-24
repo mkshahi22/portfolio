@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills - mk shahi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #121212;
+            color: #fff;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background 0.3s ease-in-out;
+        }
+
+        nav h2 {
+            font-size: 26px;
+            font-weight: bold;
+            color: #ff5733;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            padding: 5px 10px;
+            transition: color 0.3s ease-in-out;
+            position: relative;
+        }
+
+        /* Hover Effect on Navbar */
+        nav ul li a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background: #ff5733;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover::after {
+            transform: scaleX(1);
+        }
+
+        nav ul li a:hover {
+            color: #ff5733;
+        }
+
+        .skills-container {
+            padding: 100px 20px;
+            margin-top: 80px;
+        }
+
+        .skills-section {
+            max-width: 500px;
+            margin: auto;
+            text-align: left;
+        }
+
+        .skill {
+            margin: 20px 0;
+        }
+
+        .skill-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #444;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 0;
+            background: #ff5733;
+            transition: width 1s ease-in-out;
+        }
+
+        .charts-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        canvas {
+            max-width: 200px;
+            max-height: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <h2>Portfolio</h2>
+        <ul>
+            <li><a href="http://127.0.0.1:5500/index.html">Home</a></li>
+            <li><a href="http://127.0.0.1:5500/about.html">About</a></li>
+            <li><a href="http://127.0.0.1:5500/education.html">Education</a></li>
+            <li><a href="http://127.0.0.1:5500/project.html">Projects</a></li>
+            <li><a href="http://127.0.0.1:5500/skill.html">Skills</a></li>
+            <li><a href="http://127.0.0.1:5500/contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="skills-container">
+        <h1>Technical Skills</h1>
+        <div class="skills-section">
+            <div class="skill">
+                <div class="skill-name">HTML & CSS</div>
+                <div class="progress-bar"><div class="progress-bar-fill" data-progress="90%"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">Java</div>
+                <div class="progress-bar"><div class="progress-bar-fill" data-progress="80%"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">Mysql</div>
+                <div class="progress-bar"><div class="progress-bar-fill" data-progress="90%"></div></div>
+            </div>
+            <div class="skill">
+                <div class="skill-name">Python</div>
+                <div class="progress-bar"><div class="progress-bar-fill" data-progress="55%"></div></div>
+            </div>
+        </div>
+
+        <h1>Soft Skills</h1>
+        <div class="charts-container">
+            <canvas id="communication-chart"></canvas>
+            <canvas id="teamwork-chart"></canvas>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            gsap.from("nav", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
+            gsap.to(".progress-bar-fill", {
+                width: function(i, target) {
+                    return target.getAttribute("data-progress");
+                },
+                duration: 2,
+                ease: "power2.out"
+            });
+        });
+
+        const communicationChart = new Chart(document.getElementById("communication-chart"), {
+            type: "doughnut",
+            data: {
+                labels: ["Communication", "Remaining"],
+                datasets: [{
+                    data: [85, 15],
+                    backgroundColor: ["#ff5733", "#444"],
+                }]
+            },
+            options: { responsive: true }
+        });
+
+        const teamworkChart = new Chart(document.getElementById("teamwork-chart"), {
+            type: "doughnut",
+            data: {
+                labels: ["Teamwork", "Remaining"],
+                datasets: [{
+                    data: [90, 10],
+                    backgroundColor: ["#ff5733", "#444"],
+                }]
+            },
+            options: { responsive: true }
+        });
+    </script>
+</body>
+</html>
