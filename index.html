@@ -3,85 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MK Shahi - Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <head>
+        <title>Mayank Prashar | Portfolio</title>
+        <meta name="description" content="Welcome to my portfolio. See my projects, skills, and experience in web development.">
+        <meta name="keywords" content="Mayank Prashar, Portfolio, Web Developer, HTML, CSS, JavaScript">
+        <meta name="robots" content="index, follow">
+    
+        <!-- Open Graph for Social Media -->
+        <meta property="og:title" content="Mayank Prashar | Portfolio">
+        <meta property="og:description" content="A showcase of my work, skills, and projects in web development.">
+        <meta property="og:image" content="./web.png">
+        <meta property="og:url" content="https://mkshahi.netlify.app/">
+    
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Mayank Prashar | Portfolio">
+        <meta name="twitter:description" content="Showcasing my work, skills, and projects in web development.">
+        <meta name="twitter:image" content="https://yourwebsite.com/assets/preview.jpg">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" media="print" onload="this.media='all'">
+
+    </head>
     <style>
-        /* General Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Poppins", sans-serif;
-            scroll-behavior: smooth;
-        }
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+body {
+    background: #121212;
+    color: #fff;
+    text-align: center;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(0, 0, 0, 0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background 0.3s ease-in-out;
+}
+nav h2 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #ff5733;
+}
 
-        body {
-            background: #121212;
-            color: #fff;
-            text-align: center;
-        }
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+.nav-links li {
+    margin: 0 15px;
+    position: relative;
+}
 
-        /* Navigation Bar */
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 5px 10px;
+    transition: color 0.3s ease-in-out;
+    position: relative;
+}
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 50px;
-            background: rgba(0, 0, 0, 0.9);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            transition: background 0.3s ease-in-out;
-        }
+/* Hover Effect */
+.nav-links li a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background: #ff5733;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
 
-        nav h2 {
-            font-size: 26px;
-            font-weight: bold;
-            color: #ff5733;
-        }
+.nav-links li a:hover::after {
+    transform: scaleX(1);
+}
 
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
+.nav-links li a:hover {
+    color: #ff5733;
+}
 
-        nav ul li {
-            margin: 0 15px;
-            position: relative;
-        }
+/* Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
 
-        nav ul li a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 18px;
-            padding: 5px 10px;
-            transition: color 0.3s ease-in-out;
-            position: relative;
-        }
+.bar {
+    background: white;
+    height: 4px;
+    width: 30px;
+    margin: 5px 0;
+    transition: 0.4s;
+}
 
-        /* Hover Effect on Navbar */
-        nav ul li a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -5px;
-            width: 100%;
-            height: 2px;
-            background: #ff5733;
-            transform: scaleX(0);
-            transition: transform 0.3s ease-in-out;
-        }
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 50%;
+        background: rgba(0, 0, 0, 0.9);
+        text-align: right;
+        padding: 10px;
+        border-radius: 10px;
+    }
 
-        nav ul li a:hover::after {
-            transform: scaleX(1);
-        }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-links li {
+        margin: 15px 20px;
+    }
+    .menu-toggle {
+        display: flex;
+    }
 
-        nav ul li a:hover {
-            color: #ff5733;
-        }
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .social-links a {
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+    }
+}
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Even spacing */
+}
+
+/* Default Icon Styles (Simple, White) */
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;  /* Default white */
+    font-size: 28px;  /* Slightly bigger for better UI */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+
+/* Hover Effect (Original Brand Colors) */
+.social-links a:hover {
+    transform: scale(1.2);
+}
+
+/* GitHub - Blue */
+.social-links a[href*="github"]:hover {
+    color: #4078c0;
+}
+
+/* LinkedIn - Blue */
+.social-links a[href*="linkedin"]:hover {
+    color: #0077b5;
+}
+
+/* Twitter/X - Light Blue */
+.social-links a[href*="twitter"]:hover {
+    color: #0797f1;
+}
 
         /* Hero Section */
         .hero {
@@ -110,58 +233,47 @@
 
         /* Call-to-Action Buttons */
         .cta-buttons {
+            display: flex;
+            gap: 15px;
             margin-top: 20px;
         }
-
-        .cta-buttons a {
-            display: inline-block;
-            background: linear-gradient(45deg, #ff5733, #e04b2f);
-            color: #fff;
-            padding: 12px 25px;
-            margin: 10px;
-            font-size: 18px;
+        
+        .btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: 600;
             text-decoration: none;
-            border-radius: 5px;
-            transition: all 0.3s ease-in-out;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-buttons a:hover {
-            background: linear-gradient(45deg, #e04b2f, #ff5733);
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(255, 87, 51, 0.7);
-        }
-
-        /* Social Media Icons */
-        .social-links {
-            margin-top: 20px;
+            border-radius: 8px;
+            transition: 0.3s;
         }
         
-        .social-links a {
-            margin: 0 15px;
+        .resume-btn {
+            background-color: #007bff;
             color: white;
-            font-size: 24px;
-            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
         }
         
-        .social-links a:hover {
-            transform: scale(1.2);
+        .resume-btn:hover {
+            background-color: #0056b3;
+            box-shadow: 0px 5px 10px rgba(0, 123, 255, 0.3);
         }
         
-        /* Specific hover colors */
-        .social-links a[href*="github"]:hover {
-            color: #4078c0;
+        .contact-btn {
+            background-color: #28a745;
+            color: white;
         }
         
-        .social-links a[href*="linkedin"]:hover {
-            color: #0077b5;
+        .contact-btn:hover {
+            background-color: #1e7e34;
+            box-shadow: 0px 5px 10px rgba(40, 167, 69, 0.3);
         }
         
-        .social-links a[href*="twitter"]:hover {
-            color: #1DA1F2;
-        }
-        
+        /* Social Media Icons */
+/* Social Links Container */
+
+
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
@@ -175,46 +287,133 @@
                 font-size: 18px;
             }
         }
+        /* Tablet Screens (Up to 1024px) */
+@media (max-width: 1024px) {
+    .hero h1 {
+        font-size: 40px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Mobile Screens (Up to 768px) */
+@media (max-width: 768px) {
+    /* Adjusting Navigation */
+    nav {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    /* Adjusting Social Icons */
+    .social-links a {
+        font-size: 24px;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* Small Mobile Screens (Up to 480px) */
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .cta-buttons .btn {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+
+    /* Reduce social icon size */
+    .social-links a {
+        font-size: 22px;
+        width: 35px;
+        height: 35px;
+    }
+}
     </style>
-</head>
 <body>
 
     <nav>
         <h2>Portfolio</h2>
-        <ul>
+        <ul class="nav-links" id="nav-links">
             <li><a href="/index.html">Home</a></li>
             <li><a href="/about.html">About</a></li>
             <li><a href="/education.html">Education</a></li>
             <li><a href="/project.html">Projects</a></li>
             <li><a href="/skill.html">Skills</a></li>
             <li><a href="/contact.html">Contact</a></li>
-            
         </ul>
+        <!-- Responsive Menu Icon -->
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
     </nav>
-
+    
+    
     <section class="hero">
         <h1>Hello, I'm <span style="color: #ff5733;">Mitthu Kumar</span></h1>
         <p>A passionate Frontend Web Developer & Android App Developer</p>
         
         <div class="cta-buttons">
-            <a href="#" download>View Resume</a>
-            <a href="contact.html">Contact Me</a>
+            <a href="resume.pdf" download class="btn resume-btn">
+                <i class="fa-solid fa-download"></i> View Resume
+            </a>
+            <a href="contact.html" class="btn contact-btn">
+                <i class="fa-solid fa-envelope"></i> Contact Me
+            </a>
+        </div>
+        <div class="social-links">
+            <a href="https://github.com/mkshahi22" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/mitthu-kumar/" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://x.com/Mayank_Pras" target="_blank" aria-label="Twitter">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
         </div>
         
-        <div class="social-links">
-            <a href="https://github.com/mkshahi22" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/mitthu-kumar/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://x.com/Mayank_Pras" target="_blank"><i class="fab fa-twitter"></i></a>
-        </div>
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            gsap.from("nav", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
-            gsap.to(".hero h1", { duration: 1, opacity: 1, y: 0, ease: "power2.out" });
-            gsap.to(".hero p", { duration: 1.2, opacity: 1, y: 0, ease: "power2.out", delay: 0.3 });
+    <script >   document.addEventListener("DOMContentLoaded", function() {
+        // GSAP Animations
+        gsap.from("nav", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
+        gsap.to(".hero h1", { duration: 1, opacity: 1, y: 0, ease: "power2.out" });
+        gsap.to(".hero p", { duration: 1.2, opacity: 1, y: 0, ease: "power2.out", delay: 0.3 });
+    
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById("mobile-menu");
+        const navLinks = document.getElementById("nav-links");
+    
+        mobileMenu.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+            mobileMenu.classList.toggle("active");
         });
+    });
+     
     </script>
 </body>
 </html>
