@@ -3,8 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About -mk shahi</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Mayank Prashar | About</title>
+    <meta name="description" content="Learn more about Mitthu Kumar, a passionate Frontend Web Developer & Android App Developer. Discover my skills, journey, and professional background.">
+    <meta name="keywords" content="Mitthu Kumar, Web Developer, Android Developer, Frontend Developer, Portfolio, About Me">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for Social Media -->
+    <meta property="og:title" content="Mayank Prashar | About">
+    <meta property="og:description" content="Discover the story behind a passionate web and mobile app developer.">
+    <meta property="og:image" content="./web.png">
+    <meta property="og:url" content="https://mkshahi.netlify.app/about.html">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mayank Prashar | About">
+    <meta name="twitter:description" content="Learn more about my journey in web and mobile development.">
+    <meta name="twitter:image" content="https://yourwebsite.com/assets/preview.jpg">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" media="print" onload="this.media='all'">
     
     <style>
         /* General Styles */
@@ -43,17 +59,17 @@
             color: #ff5733;
         }
 
-        nav ul {
+        .nav-links {
             list-style: none;
             display: flex;
         }
 
-        nav ul li {
+        .nav-links li {
             margin: 0 15px;
             position: relative;
         }
 
-        nav ul li a {
+        .nav-links li a {
             text-decoration: none;
             color: #fff;
             font-size: 18px;
@@ -63,7 +79,7 @@
         }
 
         /* Hover Effect on Navbar */
-        nav ul li a::after {
+        .nav-links li a::after {
             content: "";
             position: absolute;
             left: 0;
@@ -75,12 +91,27 @@
             transition: transform 0.3s ease-in-out;
         }
 
-        nav ul li a:hover::after {
+        .nav-links li a:hover::after {
             transform: scaleX(1);
         }
 
-        nav ul li a:hover {
+        .nav-links li a:hover {
             color: #ff5733;
+        }
+
+        /* Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            background: white;
+            height: 4px;
+            width: 30px;
+            margin: 5px 0;
+            transition: 0.4s;
         }
 
         /* About Section */
@@ -91,6 +122,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
+            margin-top: 70px; /* Added to prevent navbar overlap */
         }
 
         .about-section img {
@@ -100,6 +132,7 @@
             border: 4px solid #ff5733;
             margin-bottom: 15px;
             transition: transform 0.3s ease-in-out;
+            object-fit: cover;
         }
 
         .about-section img:hover {
@@ -125,30 +158,41 @@
         /* Social Media Icons */
         .social-links {
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
-        
+
         .social-links a {
-            margin: 0 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
             color: white;
-            font-size: 24px;
-            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+            font-size: 28px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, background 0.3s ease-in-out;
         }
-        
+
         .social-links a:hover {
             transform: scale(1.2);
         }
-        
-        /* Specific hover colors */
+
+        /* GitHub - Blue */
         .social-links a[href*="github"]:hover {
             color: #4078c0;
         }
-        
+
+        /* LinkedIn - Blue */
         .social-links a[href*="linkedin"]:hover {
             color: #0077b5;
         }
-        
+
+        /* Twitter/X - Light Blue */
         .social-links a[href*="twitter"]:hover {
-            color: #1DA1F2;
+            color: #0797f1;
         }
 
         /* Responsive Design */
@@ -158,12 +202,55 @@
                 padding: 20px;
             }
 
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 50%;
+                background: rgba(0, 0, 0, 0.9);
+                text-align: right;
+                padding: 10px;
+                border-radius: 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 15px 20px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu-toggle.active .bar:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
             .about-section h1 {
                 font-size: 32px;
             }
 
             .about-section p {
                 font-size: 16px;
+            }
+
+            .social-links a {
+                font-size: 24px;
+                width: 40px;
+                height: 40px;
             }
         }
     </style>
@@ -173,20 +260,25 @@
     <!-- Navigation -->
     <nav>
         <h2>Portfolio</h2>
-        <ul>
+        <ul class="nav-links" id="nav-links">
             <li><a href="/index.html">Home</a></li>
             <li><a href="/about.html">About</a></li>
             <li><a href="/education.html">Education</a></li>
             <li><a href="/project.html">Projects</a></li>
             <li><a href="/skill.html">Skills</a></li>
             <li><a href="/contact.html">Contact</a></li>
-            
         </ul>
+        <!-- Responsive Menu Icon -->
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
     </nav>
 
     <!-- About Section -->
     <section class="about-section">
-        <img src="./avtar.jprg.webp" alt="Avatar">
+        <img src="./avatar.png" alt="Mitthu Kumar Avatar">
         <h1>About Me</h1>
         <p>
             Hello! I'm <span style="color: #ff5733;">Mitthu Kumar</span>, a passionate Frontend Web Developer & Android App Developer. I specialize in building interactive, responsive, and visually appealing applications. My journey in tech is fueled by curiosity, problem-solving, and a deep interest in modern development trends. When I'm not coding, I explore new technologies, work on exciting projects, and continuously enhance my skills to stay ahead in the ever-evolving tech world
@@ -194,9 +286,15 @@
 
         <!-- Social Media Links -->
         <div class="social-links">
-            <a href="https://github.com/mkshahi22" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/mitthu-kumar/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://x.com/Mayank_Pras" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://github.com/mkshahi22" target="_blank" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/mitthu-kumar/" target="_blank" aria-label="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://x.com/Mayank_Pras" target="_blank" aria-label="Twitter">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
         </div>
     </section>
 
@@ -205,9 +303,19 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // GSAP Animations
             gsap.from("nav", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
             gsap.to(".about-section h1", { duration: 1, opacity: 1, y: 0, ease: "power2.out" });
             gsap.to(".about-section p", { duration: 1.2, opacity: 1, y: 0, ease: "power2.out", delay: 0.3 });
+        
+            // Mobile Menu Toggle
+            const mobileMenu = document.getElementById("mobile-menu");
+            const navLinks = document.getElementById("nav-links");
+        
+            mobileMenu.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+                mobileMenu.classList.toggle("active");
+            });
         });
     </script>
 
