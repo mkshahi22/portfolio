@@ -21,6 +21,7 @@
     <meta name="twitter:image" content="https://yourwebsite.com/assets/preview.jpg">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="footer.css">
     <style>
         /* General Styles (Matching index.html) */
         * {
@@ -115,7 +116,7 @@
         /* Contact Section */
         .contact {
             max-width: 550px;
-            margin: 120px auto 50px;
+            margin: 120px auto 100px;
             padding: 25px;
             background: rgba(0, 123, 255, 0.1);
             border-radius: 10px;
@@ -316,42 +317,60 @@
             <button type="submit" id="submitBtn">Send Message</button>
         </form>
     </section>
-
+    <footer class="footer">
+        © 2025 Mitthu Kumar. All Rights Reserved.
+    </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // GSAP Animations
             gsap.from("nav", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
             gsap.from(".contact", { duration: 1, opacity: 0, y: 50, ease: "power2.out" });
-
+        
             // Mobile Menu Toggle
             const mobileMenu = document.getElementById("mobile-menu");
             const navLinks = document.getElementById("nav-links");
-
+        
             mobileMenu.addEventListener("click", () => {
                 navLinks.classList.toggle("active");
                 mobileMenu.classList.toggle("active");
             });
-
+        
             // Form Submission
             const form = document.getElementById("contact-form");
             form.addEventListener("submit", function(event) {
                 event.preventDefault();
-
+        
+                // Get form values
                 let name = document.getElementById("name").value.trim();
                 let email = document.getElementById("email").value.trim();
                 let subject = document.getElementById("subject").value.trim();
                 let message = document.getElementById("message").value.trim();
-
+        
+                // Validate email
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    alert("Please enter a valid email address.");
+                    return;
+                }
+        
                 // Basic form validation
                 if (!name || !email || !subject || !message) {
                     alert("Please fill all the fields.");
                     return;
                 }
-
+        
+                // Disable submit button to prevent multiple submissions
+                const submitBtn = document.getElementById("submitBtn");
+                submitBtn.disabled = true;
+                submitBtn.textContent = "Sending...";
+        
                 // Google Apps Script Endpoint for form submission
-                fetch('https://script.google.com/macros/s/AKfycbxpGN_-sKv9ZhbRGhLr_IWYtmQwyv2QSv9dGuzZ7w0Q/dev', {  
+                const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbxpGN_-sKv9ZhbRGhLr_IWYtmQwyv2QSv9dGuzZ7w0Q/dev';
+                
+                fetch(GOOGLE_SHEETS_URL, {  
                     method: "POST",
+                    mode: 'cors', // Changed from no-cors to cors
                     headers: {
                         "Content-Type": "application/json"
                     },
@@ -359,24 +378,39 @@
                         name: name,
                         email: email,
                         subject: subject,
-                        message: message
+                        message: message,
+                        timestamp: new Date().toISOString()
                     })
                 })
-                .then(response => response.json()) 
-                .then(data => {
-                    if (data.status === "success") {
-                        alert("Message sent successfully! I'll get back to you soon.");
-                        form.reset(); // Clear form fields
-                    } else {
-                        alert("Error sending message. Please try again.");
+                .then(response => {
+                    // Check if response is ok
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
                     }
+                    return response.json();
+                })
+                .then(data => {
+                    // Reset form and button
+                    form.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Send Message";
+        
+                    // Show success message
+                    alert("Message sent successfully! I'll get back to you soon.");
                 })
                 .catch(error => {
                     console.error("Error:", error);
-                    alert("Something went wrong. Please try again.");
+                    
+                    // Reset button
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = "Send Message";
+        
+                    // Show error message
+                    alert("Something went wrong. Please try again later.");
                 });
             });
         });
     </script>
+    <script src="./footer.js"></script>
 </body>
 </html>
