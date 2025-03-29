@@ -31,13 +31,14 @@
             font-family: "Poppins", sans-serif;
             scroll-behavior: smooth;
         }
-
+        
         body {
             background: #121212;
             color: #fff;
             text-align: center;
+            padding-top: 80px; /* Added to prevent navbar overlap */
         }
-
+        
         /* Navigation Bar */
         nav {
             display: flex;
@@ -52,23 +53,23 @@
             z-index: 1000;
             transition: background 0.3s ease-in-out;
         }
-
+        
         nav h2 {
             font-size: 26px;
             font-weight: bold;
             color: #ff5733;
         }
-
+        
         .nav-links {
             list-style: none;
             display: flex;
         }
-
+        
         .nav-links li {
             margin: 0 15px;
             position: relative;
         }
-
+        
         .nav-links li a {
             text-decoration: none;
             color: #fff;
@@ -77,7 +78,7 @@
             transition: color 0.3s ease-in-out;
             position: relative;
         }
-
+        
         /* Hover Effect on Navbar */
         .nav-links li a::after {
             content: "";
@@ -90,22 +91,22 @@
             transform: scaleX(0);
             transition: transform 0.3s ease-in-out;
         }
-
+        
         .nav-links li a:hover::after {
             transform: scaleX(1);
         }
-
+        
         .nav-links li a:hover {
             color: #ff5733;
         }
-
+        
         /* Menu Toggle Button */
         .menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
         }
-
+        
         .bar {
             background: white;
             height: 4px;
@@ -113,7 +114,7 @@
             margin: 5px 0;
             transition: 0.4s;
         }
-
+        
         /* About Section */
         .about-section {
             padding: 100px 20px;
@@ -122,9 +123,9 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            margin-top: 70px; /* Added to prevent navbar overlap */
+            /* Removed margin-top as we've added padding-top to body */
         }
-
+        
         .about-section img {
             width: 180px;
             height: 180px;
@@ -134,18 +135,18 @@
             transition: transform 0.3s ease-in-out;
             object-fit: cover;
         }
-
+        
         .about-section img:hover {
             transform: scale(1.1);
         }
-
+        
         .about-section h1 {
             font-size: 42px;
             margin-bottom: 10px;
             opacity: 0;
             transform: translateY(-30px);
         }
-
+        
         .about-section p {
             font-size: 18px;
             max-width: 600px;
@@ -154,7 +155,7 @@
             opacity: 0;
             transform: translateY(30px);
         }
-
+        
         /* Social Media Icons */
         .social-links {
             margin-top: 20px;
@@ -162,7 +163,7 @@
             justify-content: center;
             gap: 20px;
         }
-
+        
         .social-links a {
             display: flex;
             align-items: center;
@@ -175,33 +176,32 @@
             border-radius: 50%;
             transition: transform 0.3s ease-in-out, color 0.3s ease-in-out, background 0.3s ease-in-out;
         }
-
+        
         .social-links a:hover {
             transform: scale(1.2);
         }
-
+        
         /* GitHub - Blue */
         .social-links a[href*="github"]:hover {
             color: #4078c0;
         }
-
+        
         /* LinkedIn - Blue */
         .social-links a[href*="linkedin"]:hover {
             color: #0077b5;
         }
-
+        
         /* Twitter/X - Light Blue */
         .social-links a[href*="twitter"]:hover {
             color: #0797f1;
         }
-
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             nav {
-                flex-direction: column;
-                padding: 20px;
+                padding: 20px; /* Kept padding but removed flex-direction: column */
             }
-
+        
             .nav-links {
                 display: none;
                 flex-direction: column;
@@ -214,43 +214,64 @@
                 padding: 10px;
                 border-radius: 10px;
             }
-
+        
             .nav-links.active {
                 display: flex;
             }
-
+        
             .nav-links li {
                 margin: 15px 20px;
             }
-
+        
             .menu-toggle {
                 display: flex;
             }
-
+        
             .menu-toggle.active .bar:nth-child(1) {
                 transform: rotate(-45deg) translate(-5px, 6px);
             }
-
+        
             .menu-toggle.active .bar:nth-child(2) {
                 opacity: 0;
             }
-
+        
             .menu-toggle.active .bar:nth-child(3) {
                 transform: rotate(45deg) translate(-5px, -6px);
             }
-
+        
             .about-section h1 {
                 font-size: 32px;
             }
-
+        
             .about-section p {
                 font-size: 16px;
             }
-
+        
             .social-links a {
                 font-size: 24px;
                 width: 40px;
                 height: 40px;
+            }
+        }
+        
+        /* Small Mobile Screens */
+        @media (max-width: 480px) {
+            body {
+                padding-top: 60px;
+            }
+        
+            .about-section h1 {
+                font-size: 28px;
+            }
+        
+            .about-section p {
+                font-size: 14px;
+            }
+        
+            .social-links a {
+                font-size: 22px;
+                width: 35px;
+                height: 35px;
             }
         }
     </style>

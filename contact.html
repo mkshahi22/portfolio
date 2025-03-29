@@ -31,14 +31,15 @@
             font-family: "Poppins", sans-serif;
             scroll-behavior: smooth;
         }
-
+        
         body {
             background: #121212;
             color: #fff;
             text-align: center;
+            padding-top: 80px; /* Added from project.html to prevent navbar overlap */
         }
-
-        /* Navigation Styles (from index.html) */
+        
+        /* Navigation Styles */
         nav {
             display: flex;
             justify-content: space-between;
@@ -52,23 +53,23 @@
             z-index: 1000;
             transition: background 0.3s ease-in-out;
         }
-
+        
         nav h2 {
             font-size: 26px;
             font-weight: bold;
             color: #ff5733;
         }
-
+        
         .nav-links {
             list-style: none;
             display: flex;
         }
-
+        
         .nav-links li {
             margin: 0 15px;
             position: relative;
         }
-
+        
         .nav-links li a {
             text-decoration: none;
             color: #fff;
@@ -77,7 +78,7 @@
             transition: color 0.3s ease-in-out;
             position: relative;
         }
-
+        
         .nav-links li a::after {
             content: "";
             position: absolute;
@@ -89,22 +90,22 @@
             transform: scaleX(0);
             transition: transform 0.3s ease-in-out;
         }
-
+        
         .nav-links li a:hover::after {
             transform: scaleX(1);
         }
-
+        
         .nav-links li a:hover {
             color: #ff5733;
         }
-
+        
         /* Menu Toggle Styles */
         .menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
         }
-
+        
         .bar {
             background: white;
             height: 4px;
@@ -112,29 +113,29 @@
             margin: 5px 0;
             transition: 0.4s;
         }
-
+        
         /* Contact Section */
         .contact {
             max-width: 550px;
-            margin: 120px auto 100px;
+            margin: 40px auto 100px; /* Adjusted margin-top since we added padding-top to body */
             padding: 25px;
             background: rgba(0, 123, 255, 0.1);
             border-radius: 10px;
             box-shadow: 0px 0px 15px rgba(0, 123, 255, 0.3);
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
-
+        
         .contact:hover {
             transform: scale(1.02);
             box-shadow: 0px 0px 20px rgba(0, 123, 255, 0.5);
         }
-
+        
         .contact h1 {
             color: #ff5733;
             margin-bottom: 25px;
             font-size: 2.4rem;
         }
-
+        
         .contact-info {
             display: flex;
             justify-content: space-between;
@@ -142,7 +143,7 @@
             margin-bottom: 30px;
             flex-wrap: wrap;
         }
-
+        
         .contact-info div {
             display: flex;
             align-items: center;
@@ -151,20 +152,20 @@
             margin-bottom: 10px;
             flex-basis: calc(33.333% - 10px);
         }
-
+        
         .contact-info i {
             font-size: 12px;
             color: #ff5733;
             margin-right: 8px;
         }
-
+        
         .contact-form {
             display: flex;
             flex-direction: column;
             gap: 20px;
             animation: fadeIn 1s ease-in-out;
         }
-
+        
         .contact-form input, 
         .contact-form textarea {
             width: 100%;
@@ -177,14 +178,14 @@
             outline: none;
             transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
         }
-
+        
         .contact-form input:focus, 
         .contact-form textarea:focus {
             transform: scale(1.02);
             box-shadow: 0px 0px 10px rgba(255, 87, 51, 0.5);
             border-color: #007bff;
         }
-
+        
         .contact-form button {
             background: linear-gradient(45deg, #ff5733, #ff2e00);
             color: white;
@@ -196,70 +197,97 @@
             border-radius: 8px;
             margin-top: 10px;
         }
-
+        
         .contact-form button:hover {
             background: linear-gradient(45deg, #ff2e00, #ff5733);
             transform: scale(1.05);
         }
-
-        /* Responsive Design */
+        
+        /* Responsive Design - Updated to match project.html */
         @media (max-width: 768px) {
             nav {
-                flex-direction: column;
-                padding: 15px 20px;
+                padding: 20px; /* Updated to match project.html */
+                flex-direction: row; /* Changed from column to row */
             }
-
+        
             .nav-links {
                 display: none;
                 flex-direction: column;
                 position: absolute;
                 top: 70px;
-                right: 0;
-                width: 100%;
+                right: 0; /* Positioned to right like project.html */
+                width: 50%; /* Changed from 100% to 50% */
                 background: rgba(0, 0, 0, 0.9);
-                text-align: center;
-                padding: 20px;
+                text-align: right; /* Changed from center to right */
+                padding: 10px; /* Changed from 20px to 10px */
                 border-radius: 10px;
             }
-
+        
             .nav-links.active {
                 display: flex;
             }
-
+        
             .nav-links li {
-                margin: 15px 0;
+                margin: 15px 20px; /* Changed from 15px 0 to 15px 20px */
             }
-
+        
             .menu-toggle {
                 display: flex;
             }
-
+        
             .menu-toggle.active .bar:nth-child(1) {
                 transform: rotate(-45deg) translate(-5px, 6px);
             }
-
+        
             .menu-toggle.active .bar:nth-child(2) {
                 opacity: 0;
             }
-
+        
             .menu-toggle.active .bar:nth-child(3) {
                 transform: rotate(45deg) translate(-5px, -6px);
             }
-
+        
             .contact {
-                margin: 100px 20px 50px;
+                margin: 40px 20px 50px;
                 padding: 20px;
             }
-
+        
             .contact-info {
                 flex-direction: column;
             }
-
+        
             .contact-info div {
                 flex-basis: 100%;
             }
         }
-
+        
+        /* Added from project.html for better mobile experience */
+        @media (max-width: 480px) {
+            body {
+                padding-top: 60px;
+            }
+            
+            .contact {
+                margin: 30px 15px 40px;
+                padding: 15px;
+            }
+            
+            .contact h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-form input, 
+            .contact-form textarea {
+                padding: 10px;
+                font-size: 11px;
+            }
+            
+            .contact-form button {
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+        
         /* Animations */
         @keyframes fadeIn {
             from {

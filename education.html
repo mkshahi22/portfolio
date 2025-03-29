@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="footer.css">
     <style>
-        /* General Styles */
         * {
             margin: 0;
             padding: 0;
@@ -36,6 +35,7 @@
             background: #121212;
             color: #fff;
             text-align: center;
+            padding-top: 80px; /* Added padding-top like project.html */
         }
         
         /* Navigation Bar */
@@ -117,7 +117,6 @@
         /* Education Section */
         .education {
             padding: 100px 20px;
-            margin-top: 70px;
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
@@ -298,7 +297,6 @@
         
         @media (max-width: 768px) {
             nav {
-                flex-direction: column;
                 padding: 20px;
             }
         
@@ -377,6 +375,10 @@
         }
         
         @media (max-width: 480px) {
+            body {
+                padding-top: 60px;
+            }
+        
             .modal-content {
                 width: 95%;
                 padding: 20px;
@@ -410,7 +412,6 @@
                 transform: scale(0.98);
             }
         }
-
     </style>
 </head>
 <body>
