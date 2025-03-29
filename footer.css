@@ -5,6 +5,7 @@
     text-align: center;
     padding: 15px 10px;
     width: 100%;
+    margin-bottom: 0;
 }
 
 /* Mobile Responsiveness */
@@ -12,6 +13,7 @@
     .footer {
         font-size: 0.9rem;
         padding: 10px;
+        margin-bottom: 0;
     }
 }
 
@@ -19,5 +21,6 @@
     .footer {
         font-size: 0.8rem;
         padding: 8px;
+        margin-bottom: 0;
     }
 }
