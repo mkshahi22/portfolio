@@ -755,9 +755,21 @@
                 <!-- Status message div for displaying form submission results -->
                 <div id="status-message" class="status-message"></div>
 
-                <form id="contact-form" class="contact-form" name="contact" method="POST" data-netlify="true">
-                    <!-- Netlify form configuration -->
-                    <input type="hidden" name="form-name" value="contact">
+                <!-- Static version of the form that appears for non-JS browsers and Netlify form crawler -->
+                <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+                    <input type="text" name="name" />
+                    <input type="email" name="email" />
+                    <input type="text" name="subject" />
+                    <textarea name="message"></textarea>
+                </form>
+
+                <!-- Actual form shown to users -->
+                <form id="contact-form" class="contact-form" method="POST" data-netlify="true" name="contact">
+                    <input type="hidden" name="form-name" value="contact" />
+                    <!-- Honeypot field to prevent spam -->
+                    <p class="hidden" style="display:none;">
+                        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                    </p>
 
                     <div class="form-group">
                         <input type="text" id="name" name="name" class="form-control" placeholder=" " required>
@@ -841,33 +853,28 @@
                 mobileMenu.classList.toggle("active");
             });
 
-            // Form submission handling with Netlify
+            // Form submission handling
             const form = document.getElementById('contact-form');
             const statusMessage = document.getElementById('status-message');
 
             form.addEventListener('submit', function (e) {
-                e.preventDefault();
+                // Don't prevent default form submission
+                // This allows Netlify to handle the form naturally
 
-                const formData = new FormData(form);
-
-                fetch('/', {
-                    method: 'POST',
-                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                    body: new URLSearchParams(formData).toString()
-                })
-                    .then(response => {
-                        if (response.ok) {
-                            showStatus('Message sent successfully! I will get back to you soon.', true);
-                            form.reset();
-                        } else {
-                            showStatus('Oops! There was a problem submitting your form.', false);
-                        }
-                    })
-                    .catch(error => {
-                        showStatus('Oops! There was a problem submitting your form.', false);
-                        console.error(error);
-                    });
+                // Let's show a sending message
+                showStatus('Sending your message...', true);
             });
+
+            // Display feedback to user when form redirects back
+            // Check for URL parameters that Netlify adds after form submission
+            function checkFormSubmission() {
+                const urlParams = new URLSearchParams(window.location.search);
+                if (urlParams.has('form-submission')) {
+                    showStatus('Message sent successfully! I will get back to you soon.', true);
+                    // Clear URL parameters without refreshing the page
+                    history.replaceState({}, document.title, window.location.pathname);
+                }
+            }
 
             // Status message function
             function showStatus(message, isSuccess) {
@@ -880,11 +887,16 @@
                     statusMessage.className = 'status-message status-error';
                 }
 
-                // Hide message after 5 seconds
-                setTimeout(() => {
-                    statusMessage.style.display = 'none';
-                }, 5000);
+                // Hide success message after 5 seconds
+                if (isSuccess) {
+                    setTimeout(() => {
+                        statusMessage.style.display = 'none';
+                    }, 5000);
+                }
             }
+
+            // Check for form submission on page load
+            checkFormSubmission();
 
             // GSAP Animations
             gsap.from("nav", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
