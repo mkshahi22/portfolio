@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitthu Kumar | Contact</title>
+    <meta name="description" content="Contact Mitthu Kumar for web development and Android app development inquiries.">
+    <meta name="keywords" content="Contact, Web Developer, Frontend Developer, Android Developer, Mitthu Kumar">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for Social Media -->
+    <meta property="og:title" content="Mitthu Kumar | Contact">
+    <meta property="og:description" content="Get in touch with Mitthu Kumar for web and mobile development projects.">
+    <meta property="og:image" content="./web.png">
+    <meta property="og:url" content="https://mkshahi.netlify.app/contact.html">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mitthu Kumar | Contact">
+    <meta name="twitter:description" content="Reach out for web and mobile development opportunities.">
+    <meta name="twitter:image" content="https://yourwebsite.com/assets/preview.jpg">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="footer.css">
+    <style>
+        /* General Styles (Matching index.html) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #121212;
+            color: #fff;
+            text-align: center;
+            padding-top: 80px;
+            /* Added from project.html to prevent navbar overlap */
+        }
+
+        /* Navigation Styles */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background 0.3s ease-in-out;
+        }
+
+        nav h2 {
+            font-size: 26px;
+            font-weight: bold;
+            color: #ff5733;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            padding: 5px 10px;
+            transition: color 0.3s ease-in-out;
+            position: relative;
+        }
+
+        .nav-links li a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background: #ff5733;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .nav-links li a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .nav-links li a:hover {
+            color: #ff5733;
+        }
+
+        /* Menu Toggle Styles */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            background: white;
+            height: 4px;
+            width: 30px;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        /* Contact Section */
+        .contact {
+            max-width: 550px;
+            margin: 40px auto 100px;
+            /* Adjusted margin-top since we added padding-top to body */
+            padding: 25px;
+            background: rgba(0, 123, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 123, 255, 0.3);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .contact:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 0px 20px rgba(0, 123, 255, 0.5);
+        }
+
+        .contact h1 {
+            color: #ff5733;
+            margin-bottom: 25px;
+            font-size: 2.4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            text-align: left;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #bbb;
+            margin-bottom: 10px;
+            flex-basis: calc(33.333% - 10px);
+        }
+
+        .contact-info i {
+            font-size: 12px;
+            color: #ff5733;
+            margin-right: 8px;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ff5733;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 8px;
+            font-size: 12px;
+            outline: none;
+            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            transform: scale(1.02);
+            box-shadow: 0px 0px 10px rgba(255, 87, 51, 0.5);
+            border-color: #007bff;
+        }
+
+        .contact-form button {
+            background: linear-gradient(45deg, #ff5733, #ff2e00);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .contact-form button:hover {
+            background: linear-gradient(45deg, #ff2e00, #ff5733);
+            transform: scale(1.05);
+        }
+
+        /* Status message styling */
+        .status-message {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .status-success {
+            background-color: rgba(75, 181, 67, 0.2);
+            border: 1px solid #4BB543;
+            color: #4BB543;
+        }
+
+        .status-error {
+            background-color: rgba(229, 57, 53, 0.2);
+            border: 1px solid #E53935;
+            color: #E53935;
+        }
+
+        /* Responsive Design - Updated to match project.html */
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px;
+                /* Updated to match project.html */
+                flex-direction: row;
+                /* Changed from column to row */
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                /* Positioned to right like project.html */
+                width: 50%;
+                /* Changed from 100% to 50% */
+                background: rgba(0, 0, 0, 0.9);
+                text-align: right;
+                /* Changed from center to right */
+                padding: 10px;
+                /* Changed from 20px to 10px */
+                border-radius: 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 15px 20px;
+                /* Changed from 15px 0 to 15px 20px */
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu-toggle.active .bar:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .contact {
+                margin: 40px 20px 50px;
+                padding: 20px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+            }
+
+            .contact-info div {
+                flex-basis: 100%;
+            }
+        }
+
+        /* Added from project.html for better mobile experience */
+        @media (max-width: 480px) {
+            body {
+                padding-top: 60px;
+            }
+
+            .contact {
+                margin: 30px 15px 40px;
+                padding: 15px;
+            }
+
+            .contact h1 {
+                font-size: 2rem;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                padding: 10px;
+                font-size: 11px;
+            }
+
+            .contact-form button {
+                padding: 12px;
+                font-size: 16px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <h2>Portfolio</h2>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="/index2.html">Home</a></li>
+            <li><a href="/about2.html">About</a></li>
+            <li><a href="/education2.html">Education</a></li>
+            <li><a href="/project2.html">Projects</a></li>
+            <li><a href="/skill2.html">Skills</a></li>
+            <li><a href="/contact2.html">Contact</a></li>
+        </ul>
+        <!-- Responsive Menu Icon -->
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <section class="contact">
+        <h1>Contact Me</h1>
+        <div class="contact-info">
+            <div>
+                <i class="fas fa-envelope"></i>
+                <span>Mkshahi9798@gmail.com</span>
+            </div>
+            <div>
+                <i class="fas fa-phone"></i>
+                <span>+91 9798743248</span>
+            </div>
+            <div>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Greater Noida, India</span>
+            </div>
+        </div>
+
+        <!-- Status message div for displaying form submission results -->
+        <div id="status-message" class="status-message"></div>
+
+        <form id="contact-form" action="https://formsubmit.co/mayankpra97@gmail.com" class="contact-form" method="POST">
+            <!-- Anti-spam honeypot field -->
+            <input type="text" name="_honey" style="display: none">
+
+            <!-- Disable captcha -->
+            <input type="hidden" name="_captcha" value="false">
+
+            <!-- Success redirect - Updated with absolute URL to thank you page -->
+            <!-- <input type="hidden" name="_next" value="https://mkshahi.netlify.app/thankyou.html"> -->
+
+            <!-- Form fields -->
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit" id="submitBtn">Send Message</button>
+        </form>
+    </section>
+    <footer class="footer">
+        © 2025 Mitthu Kumar. All Rights Reserved.
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Mobile Menu Toggle
+            const mobileMenu = document.getElementById("mobile-menu");
+            const navLinks = document.getElementById("nav-links");
+
+            mobileMenu.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+                mobileMenu.classList.toggle("active");
+            });
+
+            // Status message functions
+            function showStatus(message, isSuccess) {
+                const statusMessage = document.getElementById('status-message');
+                statusMessage.textContent = message;
+                statusMessage.style.display = 'block';
+
+                if (isSuccess) {
+                    statusMessage.className = 'status-message status-success';
+                } else {
+                    statusMessage.className = 'status-message status-error';
+                }
+
+                // Hide message after 5 seconds
+                setTimeout(() => {
+                    statusMessage.style.display = 'none';
+                }, 5000);
+            }
+
+            // Optional: Show status message after redirect from FormSubmit
+            // This checks if the URL has a query parameter indicating form submission
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('submitted')) {
+                showStatus('Your message has been sent successfully!', true);
+            }
+        });
+    </script>
+    <script src="./footer.js"></script>
+</body>
+
+</html>

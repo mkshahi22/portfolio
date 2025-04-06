@@ -8,12 +8,10 @@
     margin-bottom: 0;
 }
 
-/* Mobile Responsiveness */
 @media screen and (max-width: 600px) {
     .footer {
         font-size: 0.9rem;
         padding: 10px;
-        margin-bottom: 0;
     }
 }
 
@@ -21,6 +19,10 @@
     .footer {
         font-size: 0.8rem;
         padding: 8px;
-        margin-bottom: 0;
     }
+}
+
+.footer a {
+    color: #f1f1f1;
+    text-decoration: none;
 }

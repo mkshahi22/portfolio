@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitthu Kumar | Education</title>
+    <meta name="description"
+        content="Explore Mitthu Kumar's educational background, certifications, and professional development in computer science and web development.">
+    <meta name="keywords"
+        content="Mitthu Kumar, Education, Computer Science, B.Tech, Certifications, Web Development, Android Development">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph for Social Media -->
+    <meta property="og:title" content="Mitthu Kumar | Education">
+    <meta property="og:description"
+        content="Academic journey and professional certifications of a passionate web developer.">
+    <meta property="og:image" content="./web.png">
+    <meta property="og:url" content="https://mkshahi.netlify.app/education.html">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mitthu Kumar | Education">
+    <meta name="twitter:description"
+        content="Discover the educational path of a talented web and mobile app developer.">
+    <meta name="twitter:image" content="https://yourwebsite.com/assets/preview.jpg">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="footer.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #121212;
+            color: #fff;
+            text-align: center;
+            padding-top: 80px;
+            /* Added padding-top like project.html */
+        }
+
+        /* Navigation Bar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: background 0.3s ease-in-out;
+        }
+
+        nav h2 {
+            font-size: 26px;
+            font-weight: bold;
+            color: #ff5733;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            padding: 5px 10px;
+            transition: color 0.3s ease-in-out;
+            position: relative;
+        }
+
+        /* Hover Effect on Navbar */
+        .nav-links li a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 100%;
+            height: 2px;
+            background: #ff5733;
+            transform: scaleX(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .nav-links li a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .nav-links li a:hover {
+            color: #ff5733;
+        }
+
+        /* Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            background: white;
+            height: 4px;
+            width: 30px;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        /* Education Section */
+        .education {
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .education h1 {
+            font-size: 42px;
+            margin-bottom: 50px;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 50px auto;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .timeline-item::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: #ff5733;
+            transform: translateX(-50%);
+        }
+
+        .timeline-content {
+            background: linear-gradient(135deg, rgba(255, 87, 51, 0.1) 0%, rgba(255, 87, 51, 0.05) 100%);
+            border: 1px solid rgba(255, 87, 51, 0.2);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(255, 87, 51, 0.05);
+            border-radius: 10px;
+            padding: 25px;
+            width: 45%;
+            position: relative;
+            text-align: left;
+            transform: scale(0.9);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 55%;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: 0;
+        }
+
+        .timeline-content::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center,
+                    rgba(255, 87, 51, 0.05) 0%,
+                    transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .timeline-content:hover::before {
+            opacity: 1;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15), 0 6px 12px rgba(255, 87, 51, 0.1);
+            border-color: rgba(255, 87, 51, 0.3);
+        }
+
+        .timeline-content h3 {
+            color: #ff5733;
+            font-size: 22px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .timeline-content:hover h3 {
+            color: #ff5733;
+        }
+
+        .timeline-content p {
+            color: #bbb;
+            font-size: 16px;
+        }
+
+        .timeline-content i {
+            font-size: 25px;
+            color: #ff5733;
+            margin-right: 10px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .timeline-content:hover i {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(145deg, rgba(30, 30, 30, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+            border: 1px solid rgba(255, 87, 51, 0.2);
+            border-radius: 10px;
+            padding: 30px;
+            width: 80%;
+            max-width: 600px;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            max-height: 80vh;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            transform: perspective(1000px) rotateX(-10deg) scale(0.7);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .modal-content.show {
+            transform: perspective(1000px) rotateX(0) scale(1);
+            opacity: 1;
+        }
+
+        .modal-close {
+            color: #ff5733;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .timeline {
+                max-width: 90%;
+                padding: 0 15px;
+            }
+
+            .timeline-item::before {
+                left: -20px;
+            }
+
+            .timeline-content {
+                width: 100%;
+                margin-left: 40px !important;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 50%;
+                background: rgba(0, 0, 0, 0.9);
+                text-align: right;
+                padding: 10px;
+                border-radius: 10px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 15px 20px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu-toggle.active .bar:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .education h1 {
+                font-size: 27px;
+            }
+
+            .timeline {
+                max-width: 100%;
+                margin: 30px auto;
+            }
+
+            .timeline-item {
+                margin-bottom: 30px;
+            }
+
+            .timeline-item::before {
+                left: 10px;
+                width: 2px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 50px);
+                margin-left: 50px !important;
+                background: rgba(255, 87, 51, 0.15);
+            }
+
+            .timeline-content h3 {
+                font-size: 16px;
+            }
+
+            .timeline-content p {
+                font-size: 14px;
+            }
+
+            .timeline-content i {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-top: 60px;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+                margin: 0 10px;
+            }
+
+            .modal-content h3 {
+                font-size: 18px;
+            }
+
+            .modal-content p,
+            .modal-content ul li {
+                font-size: 14px;
+            }
+
+            .modal-close {
+                top: 5px;
+                right: 10px;
+                font-size: 25px;
+            }
+        }
+
+        /* Improved touch interactions */
+        @media (hover: none) and (pointer: coarse) {
+            .timeline-content {
+                transition: background-color 0.3s ease;
+            }
+
+            .timeline-content:active {
+                background: rgba(255, 87, 51, 0.2);
+                transform: scale(0.98);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <h2>Portfolio</h2>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="/index2.html">Home</a></li>
+            <li><a href="/about2.html">About</a></li>
+            <li><a href="/education2.html">Education</a></li>
+            <li><a href="/project2.html">Projects</a></li>
+            <li><a href="/skill2.html">Skills</a></li>
+            <li><a href="/contact2.html">Contact</a></li>
+        </ul>
+        <!-- Responsive Menu Icon -->
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+    </nav>
+
+    <section class="education">
+        <h1>Education & Certifications</h1>
+        <div class="timeline">
+            <div class="timeline-item" data-modal-id="btech-modal">
+                <div class="timeline-content">
+                    <h3><i class="fas fa-graduation-cap"></i>B.Tech in Computer Science</h3>
+                    <p>Galgotias University | 2024 - 2027</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-modal-id="diploma-modal">
+                <div class="timeline-content">
+                    <h3><i class="fas fa-university"></i>Diploma in Computer Science</h3>
+                    <p>S.V.S.U | 2021 - 2024</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-modal-id="android-modal">
+                <div class="timeline-content">
+                    <h3><i class="fas fa-code"></i>Android App Development</h3>
+                    <p>Udemy | 2025</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-modal-id="webdesign-modal">
+                <div class="timeline-content">
+                    <h3><i class="fas fa-laptop-code"></i>Responsive Web Design</h3>
+                    <p>FreeCodeCamp | Jan 2025</p>
+                </div>
+            </div>
+            <div class="timeline-item" data-modal-id="java-modal">
+                <div class="timeline-content">
+                    <h3><i class="fas fa-database"></i>Java & MySQL</h3>
+                    <p>Guvi | Nov 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Container -->
+    <div id="modal-container" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="modal-text"></div>
+        </div>
+    </div>
+    <footer class="footer">
+        © 2025 Mitthu Kumar. All Rights Reserved.
+    </footer>
+    <!-- GSAP Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // GSAP Animations
+            gsap.from("nav", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
+            gsap.to(".education h1", { duration: 1, opacity: 1, y: 0, ease: "power2.out" });
+
+            // Mobile Menu Toggle
+            const mobileMenu = document.getElementById("mobile-menu");
+            const navLinks = document.getElementById("nav-links");
+
+            mobileMenu.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+                mobileMenu.classList.toggle("active");
+            });
+
+            // Timeline Animation
+            gsap.utils.toArray(".timeline-item").forEach(item => {
+                gsap.to(item, {
+                    opacity: 1,
+                    y: 0,
+                    scale: 1,
+                    duration: 1,
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: item,
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    }
+                });
+            });
+            // Modal Logic
+            const modal = document.getElementById('modal-container');
+            const modalText = document.getElementById('modal-text');
+            const modalClose = document.querySelector('.modal-close');
+            const modalContent = document.querySelector('.modal-content');
+            const descriptions = {
+                'btech-modal': `
+    <h3>B.Tech in Computer Science</h3><br>
+    <p>Currently pursuing a Bachelor of Technology in Computer Science at Galgotias University (2024-2027). The program emphasizes cutting-edge technologies, software development, and industry-oriented learning.</p><br>
+    <p><b>Key Areas of Study:</b></p><br>
+    <ul>
+        <li>Data Structures & Algorithms</li>
+        <li>Operating Systems & Computer Networks</li>
+        <li>Software Engineering & Web Technologies</li>
+        <li>Machine Learning & Cloud Computing</li>
+    </ul>
+`,
+
+                'diploma-modal': `
+    <h3>Diploma in Computer Science</h3><br>
+    <p>Completed a Diploma in Computer Science from SVSU, Meerut (2021-2024), gaining in-depth knowledge of software development and computer systems.</p><br>
+    <p><b>Curriculum Highlights:</b></p><br>
+    <ul>
+        <li>Programming (Java, C, Python)</li>
+        <li>Database Management & SQL</li>
+        <li>Web Development (HTML, CSS, JavaScript)</li>
+        <li>Computer Networks & Cybersecurity Basics</li>
+    </ul>
+`,
+
+                'android-modal': `
+    <h3>Android App Development Certification</h3><br>
+    <p>Certified in Android App Development (Udemy), focusing on building modern mobile applications using the latest tools and technologies.</p><br>
+   <p><b>Course Modules:</b></p><br>
+    <ul>
+        <li>Android Studio & UI Development</li>
+        <li>Java & Kotlin for Android</li>
+        <li>Firebase & REST API Integration</li>
+        <li>App Deployment & Play Store Publishing</li>
+    </ul>
+`,
+
+                'webdesign-modal': `
+    <h3>Responsive Web Design Certification</h3><br>
+    <p>Earned a Responsive Web Design certification from FreeCodeCamp, mastering front-end development and modern UI principles.</p><br>
+    <p><b>Skills Acquired:</b></p><br>
+    <ul>
+        <li>HTML5, CSS3 & JavaScript</li>
+        <li>Flexbox, Grid & Bootstrap</li>
+        <li>Mobile-First & Cross-Browser Design</li>
+        <li>SEO & Performance Optimization</li>
+    </ul>
+`,
+
+                'java-modal': `
+    <h3>Java & MySQL Certification</h3><br>
+    <p>Professional certification in Java and MySQL from Guvi, focusing on backend development and database management.</p><br>
+    <p><b>Course Coverage:</b></p><br>
+    <ul>
+        <li>Core & Advanced Java</li>
+        <li>Object-Oriented Programming (OOP)</li>
+        <li>SQL Queries & Database Optimization</li>
+        <li>JDBC & Backend API Development</li>
+    </ul>
+`,
+
+            };
+            // Click event for timeline items
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.addEventListener('click', function () {
+                    const modalId = this.getAttribute('data-modal-id');
+                    modalText.innerHTML = descriptions[modalId];
+                    modal.style.display = 'flex';
+
+                    // Small delay to trigger CSS transition
+                    setTimeout(() => {
+                        modalContent.classList.add('show');
+                    }, 10);
+                });
+            });
+
+            // Close modal when clicking 'x'
+            modalClose.addEventListener('click', function () {
+                modalContent.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 300);
+            });
+
+            // Close modal when clicking outside
+            modal.addEventListener('click', function (event) {
+                if (event.target === modal) {
+                    modalClose.click();
+                }
+            });
+        });
+    </script>
+    <script src="./footer.js"></script>
+</body>
+
+</html>

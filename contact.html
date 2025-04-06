@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mitthu Kumar | Contact</title>
-    <meta name="description" content="Contact Mitthu Kumar for web development and Android app development inquiries.">
-    <meta name="keywords" content="Contact, Web Developer, Frontend Developer, Android Developer, Mitthu Kumar">
+    <meta name="description"
+        content="Contact Mitthu Kumar for web development, Android app development, and UI/UX consultations. Get in touch for your next project.">
+    <meta name="keywords"
+        content="Contact, Web Developer, Frontend Developer, Android Developer, Mitthu Kumar, UI/UX Design">
     <meta name="robots" content="index, follow">
 
     <!-- Open Graph for Social Media -->
@@ -19,12 +21,36 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Mitthu Kumar | Contact">
     <meta name="twitter:description" content="Reach out for web and mobile development opportunities.">
-    <meta name="twitter:image" content="https://yourwebsite.com/assets/preview.jpg">
+    <meta name="twitter:image" content="./web.png">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Preload critical assets -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </noscript>
+
+    <!-- AOS CSS for scroll animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
     <link rel="stylesheet" href="footer.css">
     <style>
-        /* General Styles (Matching index.html) */
+        /* General Styles */
+        :root {
+            --primary-color: #ff5733;
+            --secondary-color: #007bff;
+            --accent-color: #28a745;
+            --background-dark: #121212;
+            --text-dark: #fff;
+            --background-light: #f5f5f5;
+            --text-light: #333;
+            --form-bg-dark: rgba(0, 123, 255, 0.1);
+            --form-bg-light: rgba(248, 249, 250, 0.9);
+            --form-border-dark: rgba(0, 123, 255, 0.3);
+            --form-border-light: rgba(0, 0, 0, 0.1);
+            --transition-speed: 0.3s;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -34,14 +60,20 @@
         }
 
         body {
-            background: #121212;
-            color: #fff;
+            background: var(--background-dark);
+            color: var(--text-dark);
             text-align: center;
             padding-top: 80px;
-            /* Added from project.html to prevent navbar overlap */
+            transition: background-color var(--transition-speed) ease-in-out,
+                color var(--transition-speed) ease-in-out;
         }
 
-        /* Navigation Styles */
+        body.light-mode {
+            background: var(--background-light);
+            color: var(--text-light);
+        }
+
+        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -53,13 +85,24 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            transition: background 0.3s ease-in-out;
+            transition: background var(--transition-speed) ease-in-out;
+        }
+
+        body.light-mode nav {
+            background: rgba(245, 245, 245, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         nav h2 {
             font-size: 26px;
             font-weight: bold;
-            color: #ff5733;
+            color: var(--primary-color);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
         }
 
         .nav-links {
@@ -74,13 +117,18 @@
 
         .nav-links li a {
             text-decoration: none;
-            color: #fff;
+            color: var(--text-dark);
             font-size: 18px;
             padding: 5px 10px;
-            transition: color 0.3s ease-in-out;
+            transition: color var(--transition-speed) ease-in-out;
             position: relative;
         }
 
+        body.light-mode .nav-links li a {
+            color: var(--text-light);
+        }
+
+        /* Hover Effect */
         .nav-links li a::after {
             content: "";
             position: absolute;
@@ -88,9 +136,9 @@
             bottom: -5px;
             width: 100%;
             height: 2px;
-            background: #ff5733;
+            background: var(--primary-color);
             transform: scaleX(0);
-            transition: transform 0.3s ease-in-out;
+            transition: transform var(--transition-speed) ease-in-out;
         }
 
         .nav-links li a:hover::after {
@@ -98,10 +146,37 @@
         }
 
         .nav-links li a:hover {
-            color: #ff5733;
+            color: var(--primary-color);
         }
 
-        /* Menu Toggle Styles */
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--text-dark);
+            font-size: 24px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: color var(--transition-speed) ease-in-out;
+        }
+
+        body.light-mode .theme-toggle {
+            color: var(--text-light);
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary-color);
+        }
+
+        /* Menu Toggle Button */
         .menu-toggle {
             display: none;
             flex-direction: column;
@@ -109,109 +184,325 @@
         }
 
         .bar {
-            background: white;
+            background: var(--text-dark);
             height: 4px;
             width: 30px;
             margin: 5px 0;
             transition: 0.4s;
         }
 
+        body.light-mode .bar {
+            background: var(--text-light);
+        }
+
         /* Contact Section */
-        .contact {
-            max-width: 550px;
-            margin: 40px auto 100px;
-            /* Adjusted margin-top since we added padding-top to body */
-            padding: 25px;
-            background: rgba(0, 123, 255, 0.1);
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(0, 123, 255, 0.3);
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        .contact-section {
+            padding: 40px 20px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .contact:hover {
-            transform: scale(1.02);
-            box-shadow: 0px 0px 20px rgba(0, 123, 255, 0.5);
+        .section-header {
+            margin-bottom: 50px;
         }
 
-        .contact h1 {
-            color: #ff5733;
-            margin-bottom: 25px;
-            font-size: 2.4rem;
+        .section-header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
         }
 
+        .section-header p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #bbb;
+            line-height: 1.6;
+        }
+
+        body.light-mode .section-header p {
+            color: #666;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Contact Info */
         .contact-info {
-            display: flex;
-            justify-content: space-between;
+            background: var(--form-bg-dark);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
             text-align: left;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
         }
 
-        .contact-info div {
+        body.light-mode .contact-info {
+            background: var(--form-bg-light);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-info:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body.light-mode .contact-info:hover {
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-heading {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .info-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            color: #bbb;
-            margin-bottom: 10px;
-            flex-basis: calc(33.333% - 10px);
+            margin-bottom: 25px;
         }
 
-        .contact-info i {
-            font-size: 12px;
-            color: #ff5733;
-            margin-right: 8px;
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 20px;
+            color: white;
+            box-shadow: 0 5px 10px rgba(255, 87, 51, 0.3);
+            transition: transform var(--transition-speed);
+        }
+
+        .info-item:hover .info-icon {
+            transform: scale(1.1);
+        }
+
+        .info-details {
+            flex: 1;
+        }
+
+        .info-label {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 5px;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .info-value a {
+            color: var(--text-dark);
+            text-decoration: none;
+            transition: color var(--transition-speed);
+        }
+
+        body.light-mode .info-value a {
+            color: var(--text-light);
+        }
+
+        .info-value a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-dark);
+            font-size: 18px;
+            transition: all var(--transition-speed);
+        }
+
+        body.light-mode .social-links a {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--text-light);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            color: white;
+        }
+
+        .social-links a[href*="github"]:hover {
+            background: #333;
+        }
+
+        .social-links a[href*="linkedin"]:hover {
+            background: #0077b5;
+        }
+
+        .social-links a[href*="twitter"]:hover,
+        .social-links a[href*="x.com"]:hover {
+            background: #1da1f2;
+        }
+
+        /* Contact Form */
+        .contact-form-container {
+            background: var(--form-bg-dark);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        body.light-mode .contact-form-container {
+            background: var(--form-bg-light);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-form-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        body.light-mode .contact-form-container:hover {
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-heading {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            text-align: left;
         }
 
         .contact-form {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
-            animation: fadeIn 1s ease-in-out;
         }
 
-        .contact-form input,
-        .contact-form textarea {
+        .form-group {
+            position: relative;
+        }
+
+        .form-group.full-width {
+            grid-column: span 2;
+        }
+
+        .form-control {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #ff5733;
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border-radius: 8px;
-            font-size: 12px;
-            outline: none;
-            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
-        }
-
-        .contact-form input:focus,
-        .contact-form textarea:focus {
-            transform: scale(1.02);
-            box-shadow: 0px 0px 10px rgba(255, 87, 51, 0.5);
-            border-color: #007bff;
-        }
-
-        .contact-form button {
-            background: linear-gradient(45deg, #ff5733, #ff2e00);
-            color: white;
-            border: none;
             padding: 15px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
+            border: 2px solid rgba(255, 87, 51, 0.5);
             border-radius: 8px;
-            margin-top: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            color: var(--text-dark);
+            font-size: 16px;
+            transition: all var(--transition-speed);
         }
 
-        .contact-form button:hover {
-            background: linear-gradient(45deg, #ff2e00, #ff5733);
-            transform: scale(1.05);
+        body.light-mode .form-control {
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--text-light);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-label {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            color: #999;
+            font-size: 16px;
+            transition: all var(--transition-speed);
+            pointer-events: none;
+        }
+
+        body.light-mode .form-label {
+            color: #777;
+        }
+
+        .form-control:focus+.form-label,
+        .form-control:not(:placeholder-shown)+.form-label {
+            transform: translateY(-25px) translateX(-10px) scale(0.8);
+            color: var(--primary-color);
+            background: var(--background-dark);
+            padding: 0 5px;
+        }
+
+        body.light-mode .form-control:focus+.form-label,
+        body.light-mode .form-control:not(:placeholder-shown)+.form-label {
+            background: var(--background-light);
+        }
+
+        .submit-btn {
+            grid-column: span 2;
+            padding: 15px;
+            background: linear-gradient(45deg, var(--primary-color), #ff2e00);
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-speed);
+            margin-top: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.7s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 87, 51, 0.4);
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
         }
 
         /* Status message styling */
         .status-message {
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 8px;
+            grid-column: span 2;
             display: none;
+            animation: fadeIn 0.5s ease-in-out;
+            text-align: left;
         }
 
         .status-success {
@@ -226,13 +517,37 @@
             color: #E53935;
         }
 
-        /* Responsive Design - Updated to match project.html */
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            transition: background-color var(--transition-speed) ease-in-out;
+        }
+
+        body.light-mode .footer {
+            background-color: rgba(245, 245, 245, 0.9);
+            color: var(--text-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h1 {
+                font-size: 2.2rem;
+            }
+        }
+
         @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+
             nav {
                 padding: 20px;
-                /* Updated to match project.html */
-                flex-direction: row;
-                /* Changed from column to row */
             }
 
             .nav-links {
@@ -241,15 +556,16 @@
                 position: absolute;
                 top: 70px;
                 right: 0;
-                /* Positioned to right like project.html */
                 width: 50%;
-                /* Changed from 100% to 50% */
                 background: rgba(0, 0, 0, 0.9);
                 text-align: right;
-                /* Changed from center to right */
                 padding: 10px;
-                /* Changed from 20px to 10px */
                 border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            body.light-mode .nav-links {
+                background: rgba(245, 245, 245, 0.9);
             }
 
             .nav-links.active {
@@ -258,7 +574,6 @@
 
             .nav-links li {
                 margin: 15px 20px;
-                /* Changed from 15px 0 to 15px 20px */
             }
 
             .menu-toggle {
@@ -277,43 +592,44 @@
                 transform: rotate(45deg) translate(-5px, -6px);
             }
 
-            .contact {
-                margin: 40px 20px 50px;
-                padding: 20px;
+            .contact-form {
+                grid-template-columns: 1fr;
             }
 
-            .contact-info {
-                flex-direction: column;
+            .form-group.full-width {
+                grid-column: span 1;
             }
 
-            .contact-info div {
-                flex-basis: 100%;
+            .submit-btn {
+                grid-column: span 1;
+            }
+
+            .status-message {
+                grid-column: span 1;
+            }
+
+            .section-header h1 {
+                font-size: 2rem;
             }
         }
 
-        /* Added from project.html for better mobile experience */
         @media (max-width: 480px) {
             body {
                 padding-top: 60px;
             }
 
-            .contact {
-                margin: 30px 15px 40px;
-                padding: 15px;
+            .section-header h1 {
+                font-size: 1.8rem;
             }
 
-            .contact h1 {
-                font-size: 2rem;
+            .contact-info,
+            .contact-form-container {
+                padding: 20px;
             }
 
-            .contact-form input,
-            .contact-form textarea {
-                padding: 10px;
-                font-size: 11px;
-            }
-
-            .contact-form button {
-                padding: 12px;
+            .info-icon {
+                width: 40px;
+                height: 40px;
                 font-size: 16px;
             }
         }
@@ -330,6 +646,22 @@
                 transform: translateY(0);
             }
         }
+
+        @keyframes floatAnimation {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .float {
+            animation: floatAnimation 4s ease-in-out infinite;
+        }
     </style>
 </head>
 
@@ -344,58 +676,162 @@
             <li><a href="/skill.html">Skills</a></li>
             <li><a href="/contact.html">Contact</a></li>
         </ul>
-        <!-- Responsive Menu Icon -->
-        <div class="menu-toggle" id="mobile-menu">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+        <div class="nav-container">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <!-- Responsive Menu Icon -->
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
     </nav>
 
-    <section class="contact">
-        <h1>Contact Me</h1>
-        <div class="contact-info">
-            <div>
-                <i class="fas fa-envelope"></i>
-                <span>Mkshahi9798@gmail.com</span>
-            </div>
-            <div>
-                <i class="fas fa-phone"></i>
-                <span>+91 9798743248</span>
-            </div>
-            <div>
-                <i class="fas fa-map-marker-alt"></i>
-                <span>New Delhi, India</span>
-            </div>
+    <section class="contact-section">
+        <div class="section-header" data-aos="fade-down" data-aos-duration="1000">
+            <h1>Get In Touch</h1>
+            <p>Have a project in mind or want to collaborate? Feel free to reach out through the form below or contact
+                me directly.</p>
         </div>
 
-        <!-- Status message div for displaying form submission results -->
-        <div id="status-message" class="status-message"></div>
+        <div class="contact-container">
+            <!-- Contact Information -->
+            <div class="contact-info" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+                <h3 class="info-heading">Contact Information</h3>
 
-        <form id="contact-form" action="https://formsubmit.co/mayankpra97@gmail.com" class="contact-form" method="POST">
-            <!-- Anti-spam honeypot field -->
-            <input type="text" name="_honey" style="display: none">
+                <div class="info-item">
+                    <div class="info-icon float">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info-details">
+                        <div class="info-label">Email</div>
+                        <div class="info-value">
+                            <a href="mailto:Mkshahi9798@gmail.com">Mkshahi9798@gmail.com</a>
+                        </div>
+                    </div>
+                </div>
 
-            <!-- Disable captcha -->
-            <input type="hidden" name="_captcha" value="false">
+                <div class="info-item">
+                    <div class="info-icon float">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="info-details">
+                        <div class="info-label">Phone</div>
+                        <div class="info-value">
+                            <a href="tel:+919798743248">+91 9798743248</a>
+                        </div>
+                    </div>
+                </div>
 
-            <!-- Success redirect - Updated with absolute URL to thank you page -->
-            <!-- <input type="hidden" name="_next" value="https://mkshahi.netlify.app/thankyou.html"> -->
+                <div class="info-item">
+                    <div class="info-icon float">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info-details">
+                        <div class="info-label">Location</div>
+                        <div class="info-value">Greater Noida, India</div>
+                    </div>
+                </div>
 
-            <!-- Form fields -->
-            <input type="text" id="name" name="name" placeholder="Your Name" required>
-            <input type="email" id="email" name="email" placeholder="Your Email" required>
-            <input type="text" id="subject" name="subject" placeholder="Subject" required>
-            <textarea id="message" name="message" placeholder="Your Message" rows="4" required></textarea>
-            <button type="submit" id="submitBtn">Send Message</button>
-        </form>
+                <div class="social-links">
+                    <a href="https://github.com/mkshahi22" target="_blank" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mitthu-kumar/" target="_blank" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://x.com/Mayank_Pras" target="_blank" aria-label="Twitter">
+                        <i class="fa-brands fa-x-twitter"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-container" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
+                <h3 class="form-heading">Send a Message</h3>
+
+                <!-- Status message div for displaying form submission results -->
+                <div id="status-message" class="status-message"></div>
+
+                <form id="contact-form" class="contact-form" name="contact" method="POST" data-netlify="true">
+                    <!-- Netlify form configuration -->
+                    <input type="hidden" name="form-name" value="contact">
+
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" class="form-control" placeholder=" " required>
+                        <label for="name" class="form-label">Your Name</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" class="form-control" placeholder=" " required>
+                        <label for="email" class="form-label">Your Email</label>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <input type="text" id="subject" name="subject" class="form-control" placeholder=" " required>
+                        <label for="subject" class="form-label">Subject</label>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <textarea id="message" name="message" class="form-control" placeholder=" " rows="4"
+                            required></textarea>
+                        <label for="message" class="form-label">Your Message</label>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
     </section>
+
     <footer class="footer">
         © 2025 Mitthu Kumar. All Rights Reserved.
     </footer>
 
+    <!-- Scripts with defer to improve loading performance -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+
     <script>
         document.addEventListener("DOMContentLoaded", function () {
+            // Initialize AOS
+            AOS.init({
+                once: true,
+                disable: 'mobile'
+            });
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+
+            // Apply saved theme
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+
+            // Theme toggle functionality
+            themeToggle.addEventListener('click', function () {
+                document.body.classList.toggle('light-mode');
+                const isDark = !document.body.classList.contains('light-mode');
+
+                // Save preference
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+                // Change icon
+                if (isDark) {
+                    themeIcon.classList.replace('fa-sun', 'fa-moon');
+                } else {
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
+                }
+            });
+
             // Mobile Menu Toggle
             const mobileMenu = document.getElementById("mobile-menu");
             const navLinks = document.getElementById("nav-links");
@@ -405,9 +841,36 @@
                 mobileMenu.classList.toggle("active");
             });
 
-            // Status message functions
+            // Form submission handling with Netlify
+            const form = document.getElementById('contact-form');
+            const statusMessage = document.getElementById('status-message');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const formData = new FormData(form);
+
+                fetch('/', {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: new URLSearchParams(formData).toString()
+                })
+                    .then(response => {
+                        if (response.ok) {
+                            showStatus('Message sent successfully! I will get back to you soon.', true);
+                            form.reset();
+                        } else {
+                            showStatus('Oops! There was a problem submitting your form.', false);
+                        }
+                    })
+                    .catch(error => {
+                        showStatus('Oops! There was a problem submitting your form.', false);
+                        console.error(error);
+                    });
+            });
+
+            // Status message function
             function showStatus(message, isSuccess) {
-                const statusMessage = document.getElementById('status-message');
                 statusMessage.textContent = message;
                 statusMessage.style.display = 'block';
 
@@ -423,15 +886,10 @@
                 }, 5000);
             }
 
-            // Optional: Show status message after redirect from FormSubmit
-            // This checks if the URL has a query parameter indicating form submission
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('submitted')) {
-                showStatus('Your message has been sent successfully!', true);
-            }
+            // GSAP Animations
+            gsap.from("nav", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
         });
     </script>
-    <script src="./footer.js"></script>
 </body>
 
 </html>
