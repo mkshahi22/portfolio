@@ -1,12 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills - mk shahi</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Mitthu Kumar's Technical Skills | Web & Android Development Expertise</title>
+    <meta name="description"
+        content="Detailed overview of Mitthu Kumar's technical skills including frontend technologies, Android development, programming languages, frameworks, and professional competencies.">
+    <meta name="keywords"
+        content="Mitthu Kumar skills, frontend development expertise, Android development abilities, React proficiency, JavaScript mastery, HTML5, CSS3, Kotlin, Java, web development tools, mobile development skills">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Mitthu Kumar">
+    <link rel="canonical" href="https://mkshahi.netlify.app/skill.html">
+
+    <!-- Open Graph for Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mitthu Kumar's Technical Skills & Expertise">
+    <meta property="og:description"
+        content="Comprehensive breakdown of my technical proficiencies in web development, Android app creation, programming languages, and professional competencies.">
+    <meta property="og:image" content="https://mkshahi.netlify.app/web.png">
+    <meta property="og:url" content="https://mkshahi.netlify.app/skill.html">
+    <meta property="og:site_name" content="Mitthu Kumar Portfolio">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@Mayank_Pras">
+    <meta name="twitter:title" content="Mitthu Kumar's Technical Skills & Expertise">
+    <meta name="twitter:description"
+        content="Detailed breakdown of my technical proficiencies across web development, mobile app creation, programming languages, and professional competencies.">
+    <meta name="twitter:image" content="https://mkshahi.netlify.app/web.png">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    <!-- AOS CSS for scroll animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <!-- Chart.js for skill visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
+    <link rel="stylesheet" href="footer.css">
     <style>
+        /* General Styles */
+        :root {
+            --primary-color: #ff5733;
+            --secondary-color: #007bff;
+            --accent-color: #28a745;
+            --background-dark: #121212;
+            --text-dark: #fff;
+            --card-dark: #1e1e1e;
+            --background-light: #f5f5f5;
+            --text-light: #333;
+            --card-light: #ffffff;
+            --transition-speed: 0.3s;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -16,11 +69,20 @@
         }
 
         body {
-            background: #121212;
-            color: #fff;
+            background: var(--background-dark);
+            color: var(--text-dark);
             text-align: center;
+            padding-top: 80px;
+            transition: background-color var(--transition-speed) ease-in-out,
+                color var(--transition-speed) ease-in-out;
         }
 
+        body.light-mode {
+            background: var(--background-light);
+            color: var(--text-light);
+        }
+
+        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -32,182 +94,820 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            transition: background 0.3s ease-in-out;
+            transition: background var(--transition-speed) ease-in-out;
+        }
+
+        body.light-mode nav {
+            background: rgba(245, 245, 245, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         nav h2 {
             font-size: 26px;
             font-weight: bold;
-            color: #ff5733;
+            color: var(--primary-color);
         }
 
-        nav ul {
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links {
             list-style: none;
             display: flex;
         }
 
-        nav ul li {
+        .nav-links li {
             margin: 0 15px;
             position: relative;
         }
 
-        nav ul li a {
+        .nav-links li a {
             text-decoration: none;
-            color: #fff;
+            color: var(--text-dark);
             font-size: 18px;
             padding: 5px 10px;
-            transition: color 0.3s ease-in-out;
+            transition: color var(--transition-speed) ease-in-out;
             position: relative;
         }
 
-        /* Hover Effect on Navbar */
-        nav ul li a::after {
+        body.light-mode .nav-links li a {
+            color: var(--text-light);
+        }
+
+        /* Hover Effect */
+        .nav-links li a::after {
             content: "";
             position: absolute;
             left: 0;
             bottom: -5px;
             width: 100%;
             height: 2px;
-            background: #ff5733;
+            background: var(--primary-color);
             transform: scaleX(0);
-            transition: transform 0.3s ease-in-out;
+            transition: transform var(--transition-speed) ease-in-out;
         }
 
-        nav ul li a:hover::after {
+        .nav-links li a:hover::after {
             transform: scaleX(1);
         }
 
-        nav ul li a:hover {
-            color: #ff5733;
+        .nav-links li a:hover {
+            color: var(--primary-color);
         }
 
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--text-dark);
+            font-size: 24px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: color var(--transition-speed) ease-in-out;
+        }
+
+        body.light-mode .theme-toggle {
+            color: var(--text-light);
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary-color);
+        }
+
+        /* Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            background: var(--text-dark);
+            height: 4px;
+            width: 30px;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        body.light-mode .bar {
+            background: var(--text-light);
+        }
+
+        /* Skills Container */
         .skills-container {
-            padding: 100px 20px;
-            margin-top: 80px;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .skills-section {
-            max-width: 500px;
-            margin: auto;
-            text-align: left;
+        .skills-container h1 {
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            position: relative;
         }
 
-        .skill {
-            margin: 20px 0;
+        .skills-container h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .skill-description {
+            max-width: 800px;
+            margin: 30px auto;
+            text-align: center;
+            color: #bbb;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        body.light-mode .skill-description {
+            color: #666;
+        }
+
+        /* Skill Category Tabs */
+        .skill-tabs {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .skill-tab {
+            background: transparent;
+            border: none;
+            color: var(--text-dark);
+            font-size: 16px;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            position: relative;
+            transition: all var(--transition-speed) ease;
+        }
+
+        body.light-mode .skill-tab {
+            color: var(--text-light);
+        }
+
+        .skill-tab::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 80%;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: transform var(--transition-speed) ease;
+        }
+
+        .skill-tab:hover::after,
+        .skill-tab.active::after {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        .skill-tab.active {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Skill Card Grid */
+        .skill-category {
+            display: none;
+        }
+
+        .skill-category.active {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .skill-card {
+            background: var(--card-dark);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+            overflow: hidden;
+        }
+
+        body.light-mode .skill-card {
+            background: var(--card-light);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
         }
 
         .skill-name {
             font-size: 18px;
             font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
+        body.light-mode .skill-name {
+            color: var(--text-light);
         }
 
         .progress-bar {
             width: 100%;
             height: 10px;
-            background: #444;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 5px;
             overflow: hidden;
             position: relative;
+            margin-top: 10px;
+        }
+
+        body.light-mode .progress-bar {
+            background: rgba(0, 0, 0, 0.1);
         }
 
         .progress-bar-fill {
             height: 100%;
             width: 0;
-            background: #ff5733;
-            transition: width 1s ease-in-out;
+            background: var(--primary-color);
+            transition: width 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .skill-percentage {
+            font-size: 14px;
+            margin-top: 5px;
+            text-align: right;
+            color: #bbb;
+        }
+
+        body.light-mode .skill-percentage {
+            color: #888;
+        }
+
+        /* Skill Tags */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .skill-tag {
+            background-color: rgba(255, 87, 51, 0.1);
+            color: var(--primary-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            transition: transform var(--transition-speed) ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+        }
+
+        .skill-tag i {
+            margin-right: 5px;
+        }
+
+        /* Charts Section */
+        .charts-section {
+            margin-top: 60px;
         }
 
         .charts-container {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 40px;
             margin-top: 30px;
         }
 
-        canvas {
-            max-width: 200px;
-            max-height: 200px;
+        .chart-wrapper {
+            width: 250px;
+            height: 250px;
+            position: relative;
+            transition: transform var(--transition-speed) ease;
+        }
+
+        .chart-wrapper:hover {
+            transform: scale(1.03);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            background-color: rgba(0, 0, 0, 0.8);
+            transition: background-color var(--transition-speed) ease-in-out;
+            margin-top: 60px;
+        }
+
+        body.light-mode .footer {
+            background-color: rgba(245, 245, 245, 0.9);
+            color: var(--text-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .skill-category.active {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+
+            nav {
+                padding: 20px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 50%;
+                background: rgba(0, 0, 0, 0.9);
+                text-align: right;
+                padding: 10px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            body.light-mode .nav-links {
+                background: rgba(245, 245, 245, 0.9);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 15px 20px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu-toggle.active .bar:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .skill-category.active {
+                grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+            }
+
+            .chart-wrapper {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skills-container h1 {
+                font-size: 2rem;
+            }
+
+            .skill-name {
+                font-size: 16px;
+            }
+
+            .skill-tab {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
         }
     </style>
 </head>
-<body>
 
+<body>
     <nav>
-        <h2>Portfolio</h2>
-        <ul>
-            <li><a href="http://127.0.0.1:5500/index.html">Home</a></li>
-            <li><a href="http://127.0.0.1:5500/about.html">About</a></li>
-            <li><a href="http://127.0.0.1:5500/education.html">Education</a></li>
-            <li><a href="http://127.0.0.1:5500/project.html">Projects</a></li>
-            <li><a href="http://127.0.0.1:5500/skill.html">Skills</a></li>
-            <li><a href="http://127.0.0.1:5500/contact.html">Contact</a></li>
+        <h2>Mitthu Kumar</h2>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/education.html">Education</a></li>
+            <li><a href="/project.html">Projects</a></li>
+            <li><a href="/skill.html">Skills</a></li>
+            <li><a href="/contact.html">Contact</a></li>
         </ul>
+        <div class="nav-container">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <!-- Responsive Menu Icon -->
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
     </nav>
 
     <section class="skills-container">
-        <h1>Technical Skills</h1>
-        <div class="skills-section">
-            <div class="skill">
-                <div class="skill-name">HTML & CSS</div>
-                <div class="progress-bar"><div class="progress-bar-fill" data-progress="90%"></div></div>
+        <h1 data-aos="fade-down" data-aos-duration="1000">My Skills</h1>
+
+        <div class="skill-description" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+            <p>As a passionate Frontend Web Developer and Android App Developer, I combine technical expertise with
+                strong soft skills to deliver innovative and efficient solutions. My skill set spans multiple
+                programming
+                languages and technologies, complemented by robust problem-solving abilities and a commitment to
+                creating
+                responsive, user-friendly interfaces.</p>
+        </div>
+
+        <div class="skill-tags" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+            <div class="skill-tag"><i class="fas fa-code"></i>Frontend Development</div>
+            <div class="skill-tag"><i class="fas fa-database"></i>Backend Technologies</div>
+            <div class="skill-tag"><i class="fas fa-mobile-alt"></i>Mobile Development</div>
+            <div class="skill-tag"><i class="fas fa-brain"></i>Problem Solving</div>
+        </div>
+
+        <!-- Skill Category Tabs -->
+        <div class="skill-tabs" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+            <button class="skill-tab active" data-category="frontend">Frontend</button>
+            <button class="skill-tab" data-category="backend">Backend</button>
+            <button class="skill-tab" data-category="mobile">Mobile</button>
+            <button class="skill-tab" data-category="database">Database</button>
+            <button class="skill-tab" data-category="tools">Tools</button>
+        </div>
+
+        <!-- Frontend Skills -->
+        <div class="skill-category active" id="frontend" data-aos="fade-up" data-aos-duration="1000"
+            data-aos-delay="500">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-html5-plain"></i></div>
+                <div class="skill-name">HTML5</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="95"></div>
+                </div>
+                <div class="skill-percentage">95%</div>
             </div>
-            <div class="skill">
-                <div class="skill-name">Java</div>
-                <div class="progress-bar"><div class="progress-bar-fill" data-progress="80%"></div></div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-css3-plain"></i></div>
+                <div class="skill-name">CSS3</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="90"></div>
+                </div>
+                <div class="skill-percentage">90%</div>
             </div>
-            <div class="skill">
-                <div class="skill-name">Mysql</div>
-                <div class="progress-bar"><div class="progress-bar-fill" data-progress="90%"></div></div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-javascript-plain"></i></div>
+                <div class="skill-name">JavaScript</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="85"></div>
+                </div>
+                <div class="skill-percentage">80%</div>
             </div>
-            <div class="skill">
-                <div class="skill-name">Python</div>
-                <div class="progress-bar"><div class="progress-bar-fill" data-progress="55%"></div></div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-bootstrap-plain"></i></div>
+                <div class="skill-name">Bootstrap</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="80"></div>
+                </div>
+                <div class="skill-percentage">80%</div>
             </div>
         </div>
 
-        <h1>Soft Skills</h1>
-        <div class="charts-container">
-            <canvas id="communication-chart"></canvas>
-            <canvas id="teamwork-chart"></canvas>
+        <!-- Backend Skills -->
+        <div class="skill-category" id="backend">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-java-plain"></i></div>
+                <div class="skill-name">Java</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="80"></div>
+                </div>
+                <div class="skill-percentage">80%</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-python-plain"></i></div>
+                <div class="skill-name">Python</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="60"></div>
+                </div>
+                <div class="skill-percentage">60%</div>
+            </div>
+        </div>
+
+        <!-- Mobile Skills -->
+        <div class="skill-category" id="mobile">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-android-plain"></i></div>
+                <div class="skill-name">Android Development</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="85"></div>
+                </div>
+                <div class="skill-percentage">85%</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-kotlin-plain"></i></div>
+                <div class="skill-name">Kotlin</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="70"></div>
+                </div>
+                <div class="skill-percentage">70%</div>
+            </div>
+        </div>
+
+        <!-- Database Skills -->
+        <div class="skill-category" id="database">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-database"></i></div>
+                <div class="skill-name">MySQL</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="90"></div>
+                </div>
+                <div class="skill-percentage">90%</div>
+            </div>
+        </div>
+
+        <!-- Tools Skills -->
+        <div class="skill-category" id="tools">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-androidstudio-plain"></i></div>
+                <div class="skill-name">Android Studio</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="80"></div>
+                </div>
+                <div class="skill-percentage">80%</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-intellij-plain"></i></div>
+                <div class="skill-name">IntelliJ IDEA</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="70"></div>
+                </div>
+                <div class="skill-percentage">70%</div>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="devicon-vscode-plain"></i></div>
+                <div class="skill-name">VS Code</div>
+                <div class="progress-bar">
+                    <div class="progress-bar-fill" data-progress="95"></div>
+                </div>
+                <div class="skill-percentage">95%</div>
+            </div>
+        </div>
+
+        <!-- Professional Skills Section -->
+        <div class="charts-section" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
+            <h1>Professional Skills</h1>
+            <div class="charts-container">
+                <div class="chart-wrapper">
+                    <canvas id="communication-chart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="teamwork-chart"></canvas>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="problem-solving-chart"></canvas>
+                </div>
+            </div>
         </div>
     </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <footer class="footer">
+        © 2025 Mitthu Kumar. All Rights Reserved.
+    </footer>
+
+    <!-- Scripts with defer to improve loading performance -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            gsap.from("nav", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
-            gsap.to(".progress-bar-fill", {
-                width: function(i, target) {
-                    return target.getAttribute("data-progress");
-                },
-                duration: 2,
-                ease: "power2.out"
+        document.addEventListener("DOMContentLoaded", function () {
+            // Initialize AOS
+            AOS.init({
+                once: true,
+                disable: 'mobile'
             });
-        });
 
-        const communicationChart = new Chart(document.getElementById("communication-chart"), {
-            type: "doughnut",
-            data: {
-                labels: ["Communication", "Remaining"],
-                datasets: [{
-                    data: [85, 15],
-                    backgroundColor: ["#ff5733", "#444"],
-                }]
-            },
-            options: { responsive: true }
-        });
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
 
-        const teamworkChart = new Chart(document.getElementById("teamwork-chart"), {
-            type: "doughnut",
-            data: {
-                labels: ["Teamwork", "Remaining"],
-                datasets: [{
-                    data: [90, 10],
-                    backgroundColor: ["#ff5733", "#444"],
-                }]
-            },
-            options: { responsive: true }
+            // Apply saved theme
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+
+            // Theme toggle functionality
+            themeToggle.addEventListener('click', function () {
+                document.body.classList.toggle('light-mode');
+                const isDark = !document.body.classList.contains('light-mode');
+
+                // Save preference
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+                // Change icon
+                if (isDark) {
+                    themeIcon.classList.replace('fa-sun', 'fa-moon');
+                } else {
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
+                }
+
+                // Update charts
+                updateCharts();
+            });
+
+            // Mobile Menu Toggle
+            const mobileMenu = document.getElementById("mobile-menu");
+            const navLinks = document.getElementById("nav-links");
+
+            mobileMenu.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+                mobileMenu.classList.toggle("active");
+            });
+
+            // Skill Category Tabs
+            const skillTabs = document.querySelectorAll('.skill-tab');
+            const skillCategories = document.querySelectorAll('.skill-category');
+
+            skillTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    skillTabs.forEach(t => t.classList.remove('active'));
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+
+                    // Hide all skill categories
+                    skillCategories.forEach(category => {
+                        category.classList.remove('active');
+                    });
+
+                    // Show the selected category
+                    const categoryId = tab.getAttribute('data-category');
+                    document.getElementById(categoryId).classList.add('active');
+                });
+            });
+
+            // GSAP Animations
+            gsap.from("nav", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
+
+            // Animate progress bars when they come into view
+            const animateProgressBars = () => {
+                document.querySelectorAll('.progress-bar-fill').forEach(bar => {
+                    const progress = bar.getAttribute('data-progress');
+                    bar.style.width = progress + '%';
+                });
+            };
+
+            // Initialize with a small delay to ensure proper animation
+            setTimeout(animateProgressBars, 500);
+
+            // Initialize Charts
+            const isDarkMode = !document.body.classList.contains('light-mode');
+            const textColor = isDarkMode ? '#fff' : '#333';
+
+            const createChart = (id, label, data, color) => {
+                return new Chart(document.getElementById(id), {
+                    type: "doughnut",
+                    data: {
+                        labels: [label, ""],
+                        datasets: [{
+                            data: [data, 100 - data],
+                            backgroundColor: [color, isDarkMode ? '#333' : '#eee'],
+                            borderWidth: 0
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '75%',
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'bottom',
+                                labels: {
+                                    color: textColor,
+                                    font: {
+                                        size: 14,
+                                        family: "'Poppins', sans-serif"
+                                    }
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function (context) {
+                                        return context.raw + '%';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            };
+
+            let communicationChart, teamworkChart, problemSolvingChart;
+
+            function initCharts() {
+                communicationChart = createChart("communication-chart", "Communication", 85, '#ff5733');
+                teamworkChart = createChart("teamwork-chart", "Teamwork", 90, '#007bff');
+                problemSolvingChart = createChart("problem-solving-chart", "Problem Solving", 88, '#28a745');
+            }
+
+            // Initialize charts
+            initCharts();
+
+            // Function to update charts when theme changes
+            function updateCharts() {
+                // Destroy old charts
+                communicationChart.destroy();
+                teamworkChart.destroy();
+                problemSolvingChart.destroy();
+
+                // Re-initialize with correct colors
+                initCharts();
+            }
+
+            // Handle visibility changes for proper animations
+            document.addEventListener('visibilitychange', function () {
+                if (document.visibilityState === 'visible') {
+                    // Re-initialize AOS animations when tab becomes visible again
+                    AOS.refresh();
+
+                    // Re-animate progress bars
+                    animateProgressBars();
+                }
+            });
+
+            // Add scroll trigger for progress bars
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateProgressBars();
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Observe the skill categories
+            document.querySelectorAll('.skill-category').forEach(category => {
+                observer.observe(category);
+            });
+
+            // Lazy load images
+            document.addEventListener('DOMContentLoaded', () => {
+                const lazyImages = document.querySelectorAll('img[data-src]');
+                lazyImages.forEach(img => {
+                    img.src = img.dataset.src;
+                    img.onload = () => {
+                        img.removeAttribute('data-src');
+                    };
+                });
+            });
+
         });
     </script>
 </body>
+
 </html>

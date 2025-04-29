@@ -1,11 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Education -mk shahi</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <title>Mitthu Kumar's Education | Computer Science Background & Certifications</title>
+    <meta name="description"
+        content="Explore Mitthu Kumar's formal education, professional certifications, and continuous learning in computer science, web development, and mobile app development.">
+    <meta name="keywords"
+        content="Mitthu Kumar education, Computer Science degree, B.Tech, web development certifications, Android development training, technical education, professional development">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Mitthu Kumar">
+    <link rel="canonical" href="https://mkshahi.netlify.app/education.html">
+
+    <!-- Open Graph for Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mitthu Kumar's Education & Professional Development">
+    <meta property="og:description"
+        content="Discover my academic background in Computer Science and ongoing professional development through industry certifications and continuous learning.">
+    <meta property="og:image" content="https://mkshahi.netlify.app/web.png">
+    <meta property="og:url" content="https://mkshahi.netlify.app/education.html">
+    <meta property="og:site_name" content="Mitthu Kumar Portfolio">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:creator" content="@Mayank_Pras">
+    <meta name="twitter:title" content="Mitthu Kumar's Education & Professional Development">
+    <meta name="twitter:description"
+        content="Discover my academic background in Computer Science and ongoing professional development through industry certifications and specialized training.">
+    <meta name="twitter:image" content="https://mkshahi.netlify.app/web.png">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    </noscript>
+
+    <!-- AOS CSS for scroll animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+    <link rel="stylesheet" href="footer.css">
     <style>
+        /* General Styles */
+        :root {
+            --primary-color: #ff5733;
+            --secondary-color: #007bff;
+            --accent-color: #28a745;
+            --background-dark: #121212;
+            --text-dark: #fff;
+            --background-light: #f5f5f5;
+            --text-light: #333;
+            --card-bg-dark: linear-gradient(135deg, rgba(255, 87, 51, 0.1) 0%, rgba(255, 87, 51, 0.05) 100%);
+            --card-bg-light: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.9) 100%);
+            --card-border-dark: rgba(255, 87, 51, 0.2);
+            --card-border-light: rgba(0, 0, 0, 0.1);
+            --modal-bg-dark: linear-gradient(145deg, rgba(30, 30, 30, 0.95) 0%, rgba(40, 40, 40, 0.95) 100%);
+            --modal-bg-light: linear-gradient(145deg, rgba(245, 245, 245, 0.95) 0%, rgba(255, 255, 255, 0.95) 100%);
+            --timeline-dark: #ff5733;
+            --timeline-light: #ff5733;
+            --text-secondary-dark: #bbb;
+            --text-secondary-light: #666;
+            --transition-speed: 0.3s;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,14 +72,22 @@
             font-family: "Poppins", sans-serif;
             scroll-behavior: smooth;
         }
-        
+
         body {
-            background: #121212;
-            color: #fff;
+            background: var(--background-dark);
+            color: var(--text-dark);
             text-align: center;
+            padding-top: 80px;
+            transition: background-color var(--transition-speed) ease-in-out,
+                color var(--transition-speed) ease-in-out;
         }
 
-        /* Navigation Bar */
+        body.light-mode {
+            background: var(--background-light);
+            color: var(--text-light);
+        }
+
+        /* Navigation */
         nav {
             display: flex;
             justify-content: space-between;
@@ -32,59 +99,139 @@
             top: 0;
             left: 0;
             z-index: 1000;
-            transition: background 0.3s ease-in-out;
+            transition: background var(--transition-speed) ease-in-out;
+        }
+
+        body.light-mode nav {
+            background: rgba(245, 245, 245, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         nav h2 {
             font-size: 26px;
             font-weight: bold;
-            color: #ff5733;
+            color: var(--primary-color);
         }
 
-        nav ul {
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links {
             list-style: none;
             display: flex;
         }
 
-        nav ul li {
+        .nav-links li {
             margin: 0 15px;
             position: relative;
         }
 
-        nav ul li a {
+        .nav-links li a {
             text-decoration: none;
-            color: #fff;
+            color: var(--text-dark);
             font-size: 18px;
             padding: 5px 10px;
-            transition: color 0.3s ease-in-out;
+            transition: color var(--transition-speed) ease-in-out;
             position: relative;
         }
 
-        /* Hover Effect on Navbar */
-        nav ul li a::after {
+        body.light-mode .nav-links li a {
+            color: var(--text-light);
+        }
+
+        /* Hover Effect */
+        .nav-links li a::after {
             content: "";
             position: absolute;
             left: 0;
             bottom: -5px;
             width: 100%;
             height: 2px;
-            background: #ff5733;
+            background: var(--primary-color);
             transform: scaleX(0);
-            transition: transform 0.3s ease-in-out;
+            transition: transform var(--transition-speed) ease-in-out;
         }
 
-        nav ul li a:hover::after {
+        .nav-links li a:hover::after {
             transform: scaleX(1);
         }
 
-        nav ul li a:hover {
-            color: #ff5733;
+        .nav-links li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            color: var(--text-dark);
+            font-size: 24px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: color var(--transition-speed) ease-in-out;
+        }
+
+        body.light-mode .theme-toggle {
+            color: var(--text-light);
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary-color);
+        }
+
+        /* Menu Toggle Button */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .bar {
+            background: var(--text-dark);
+            height: 4px;
+            width: 30px;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        body.light-mode .bar {
+            background: var(--text-light);
         }
 
         /* Education Section */
         .education {
-            padding: 100px 50px;
-            margin-top: 80px;
+            padding: 100px 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .education h1 {
+            font-size: 42px;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .education h1::after {
+            content: "";
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 25%;
         }
 
         .timeline {
@@ -93,32 +240,59 @@
             margin: 50px auto;
         }
 
-        .timeline-item {
-            position: relative;
-            margin-bottom: 40px;
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .timeline-item::before {
+        .timeline::before {
             content: "";
             position: absolute;
+            top: 0;
+            bottom: 0;
             left: 50%;
             width: 2px;
-            height: 100%;
-            background: #ff5733;
+            background: var(--timeline-dark);
             transform: translateX(-50%);
         }
 
+        body.light-mode .timeline::before {
+            background: var(--timeline-light);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px rgba(255, 87, 51, 0.2);
+            z-index: 1;
+        }
+
         .timeline-content {
-            background: rgba(255, 87, 51, 0.1);
-            padding: 20px;
-            border-radius: 5px;
+            background: var(--card-bg-dark);
+            border: 1px solid var(--card-border-dark);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(255, 87, 51, 0.05);
+            border-radius: 10px;
+            padding: 25px;
             width: 45%;
             position: relative;
             text-align: left;
             transform: scale(0.9);
-            transition: transform 0.3s ease-in-out;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        body.light-mode .timeline-content {
+            background: var(--card-bg-light);
+            border: 1px solid var(--card-border-light);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(255, 87, 51, 0.05);
         }
 
         .timeline-item:nth-child(even) .timeline-content {
@@ -129,93 +303,677 @@
             margin-left: 0;
         }
 
+        .timeline-content::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center,
+                    rgba(255, 87, 51, 0.05) 0%,
+                    transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .timeline-content:hover::before {
+            opacity: 1;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-10px) scale(1);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15), 0 6px 12px rgba(255, 87, 51, 0.1);
+            border-color: rgba(255, 87, 51, 0.3);
+        }
+
         .timeline-content h3 {
-            color: #ff5733;
+            color: var(--primary-color);
             font-size: 22px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .timeline-content:hover h3 {
+            color: var(--primary-color);
         }
 
         .timeline-content p {
-            color: #bbb;
+            color: var(--text-secondary-dark);
             font-size: 16px;
         }
-        
+
+        body.light-mode .timeline-content p {
+            color: var(--text-secondary-light);
+        }
+
         .timeline-content i {
             font-size: 25px;
-            color: #ff5733;
+            color: var(--primary-color);
             margin-right: 10px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .timeline-content:hover i {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .timeline-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 15px;
+            border: 2px solid var(--primary-color);
+            padding: 5px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        body.light-mode .timeline-logo {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .achievement {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(255, 87, 51, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .percentage {
+            background: rgba(255, 87, 51, 0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        body.light-mode .percentage {
+            background: rgba(255, 87, 51, 0.1);
+        }
+
+        .timeline-content:hover .percentage {
+            background: rgba(255, 87, 51, 0.3);
+            transform: scale(1.05);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7);
+            align-items: center;
+            justify-content: center;
+        }
+
+        body.light-mode .modal {
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background: var(--modal-bg-dark);
+            border: 1px solid rgba(255, 87, 51, 0.2);
+            border-radius: 10px;
+            padding: 30px;
+            width: 80%;
+            max-width: 600px;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            max-height: 80vh;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            transform: perspective(1000px) rotateX(-10deg) scale(0.7);
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        body.light-mode .modal-content {
+            background: var(--modal-bg-light);
+            color: var(--text-light);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-content.show {
+            transform: perspective(1000px) rotateX(0) scale(1);
+            opacity: 1;
+        }
+
+        .modal-close {
+            color: var(--primary-color);
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .modal-content ul {
+            list-style-position: inside;
+            margin-left: 10px;
+        }
+
+        .modal-content ul li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 5px;
+        }
+
+        .modal-content ul li::before {
+            color: var(--primary-color);
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            background-color: rgba(0, 0, 0, 0.8);
+            transition: background-color var(--transition-speed) ease-in-out;
+        }
+
+        body.light-mode .footer {
+            background-color: rgba(245, 245, 245, 0.9);
+            color: var(--text-light);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .timeline {
+                max-width: 90%;
+                padding: 0 15px;
+            }
+
+            .timeline-item::before {
+                left: -20px;
+            }
+
+            .timeline-content {
+                width: 100%;
+                margin-left: 40px !important;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 20px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 50%;
+                background: rgba(0, 0, 0, 0.9);
+                text-align: right;
+                padding: 10px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            }
+
+            body.light-mode .nav-links {
+                background: rgba(245, 245, 245, 0.9);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 15px 20px;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .menu-toggle.active .bar:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .menu-toggle.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active .bar:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+
+            .education h1 {
+                font-size: 28px;
+            }
+
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-item {
+                margin-bottom: 30px;
+            }
+
+            .timeline-item::after {
+                left: 30px;
+                top: 25px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+
+            .timeline-content h3 {
+                font-size: 18px;
+            }
+
+            .timeline-content p {
+                font-size: 14px;
+            }
+
+            .timeline-content i {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-top: 60px;
+            }
+
+            .timeline-content {
+                padding: 15px;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 20px;
+                margin: 0 10px;
+            }
+
+            .modal-content h3 {
+                font-size: 18px;
+            }
+
+            .modal-content p,
+            .modal-content ul li {
+                font-size: 14px;
+            }
+
+            .modal-close {
+                top: 5px;
+                right: 10px;
+                font-size: 25px;
+            }
+        }
+
+        /* Improved touch interactions */
+        @media (hover: none) and (pointer: coarse) {
+            .timeline-content {
+                transition: background-color 0.3s ease;
+            }
+
+            .timeline-content:active {
+                background: rgba(255, 87, 51, 0.2);
+                transform: scale(0.98);
+            }
         }
     </style>
 </head>
+
 <body>
     <nav>
-        <h2>Portfolio</h2>
-        <ul>
-            <li><a href="http://127.0.0.1:5500/index.html">Home</a></li>
-            <li><a href="http://127.0.0.1:5500/about.html">About</a></li>
-            <li><a href="http://127.0.0.1:5500/education.html">Education</a></li>
-            <li><a href="http://127.0.0.1:5500/project.html">Projects</a></li>
-            <li><a href="http://127.0.0.1:5500/skill.html">Skills</a></li>
-            <li><a href="http://127.0.0.1:5500/contact.html">Contact</a></li>
+        <h2>Mitthu Kumar</h2>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/education.html">Education</a></li>
+            <li><a href="/project.html">Projects</a></li>
+            <li><a href="/skill.html">Skills</a></li>
+            <li><a href="/contact.html">Contact</a></li>
         </ul>
+        <div class="nav-container">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <!-- Responsive Menu Icon -->
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
     </nav>
-    
+
     <section class="education">
-        <h1>Education & Certifications</h1>
+        <h1 data-aos="fade-down" data-aos-duration="1000">Education & Certifications</h1>
         <div class="timeline">
-            <div class="timeline-item">
+            <div class="timeline-item" data-modal-id="btech-modal" data-aos="fade-right" data-aos-duration="1000"
+                data-aos-delay="100">
                 <div class="timeline-content">
+                    <img src="./gu.webp" alt="Galgotias University Logo" class="timeline-logo">
                     <h3><i class="fas fa-graduation-cap"></i>B.Tech in Computer Science</h3>
                     <p>Galgotias University | 2024 - 2027</p>
+                    <div class="achievement">
+                        <span>CGPA</span>
+                        <span class="percentage">7.5/10</span>
+                    </div>
                 </div>
             </div>
-            <div class="timeline-item">
+            <div class="timeline-item" data-modal-id="diploma-modal" data-aos="fade-left" data-aos-duration="1000"
+                data-aos-delay="200">
                 <div class="timeline-content">
+                    <img src="./svsu.webp" alt="SVSU Logo" class="timeline-logo">
                     <h3><i class="fas fa-university"></i>Diploma in Computer Science</h3>
-                    <p>2021 - 2024</p>
+                    <p>S.V.S.U | 2021 - 2024</p>
+                    <div class="achievement">
+                        <span>Percentage</span>
+                        <span class="percentage">70%</span>
+                    </div>
                 </div>
             </div>
-            <div class="timeline-item">
+            <div class="timeline-item" data-modal-id="android-modal" data-aos="fade-right" data-aos-duration="1000"
+                data-aos-delay="300">
                 <div class="timeline-content">
+                    <img src="./udemy.webp" alt="Udemy Logo" class="timeline-logo">
                     <h3><i class="fas fa-code"></i>Android App Development</h3>
-                    <p>Udemy | 2025</p>
+                    <p>Udemy | 2025-Present</p>
+                    <div class="achievement">
+                        <span>Achievement</span>
+                        <span class="percentage">In Progress</span>
+                    </div>
                 </div>
             </div>
-            <div class="timeline-item">
+            <div class="timeline-item" data-modal-id="webdesign-modal" data-aos="fade-left" data-aos-duration="1000"
+                data-aos-delay="400">
                 <div class="timeline-content">
+                    <img src="./freecodecamp.webp" alt="FreeCodeCamp Logo" class="timeline-logo">
                     <h3><i class="fas fa-laptop-code"></i>Responsive Web Design</h3>
                     <p>FreeCodeCamp | Jan 2025</p>
+                    <div class="achievement">
+                        <span>Projects</span>
+                        <span class="percentage">5/5</span>
+                    </div>
                 </div>
             </div>
-            <div class="timeline-item">
+            <div class="timeline-item" data-modal-id="java-modal" data-aos="fade-right" data-aos-duration="1000"
+                data-aos-delay="500">
                 <div class="timeline-content">
+                    <img src="./guvi.webp" alt="Guvi Logo" class="timeline-logo">
                     <h3><i class="fas fa-database"></i>Java & MySQL</h3>
                     <p>Guvi | Nov 2024</p>
+                    <div class="achievement">
+                        <span>Grade</span>
+                        <span class="percentage">A</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            gsap.from("nav", { duration: 1, y: -50, opacity: 0, ease: "power2.out" });
 
-            gsap.utils.toArray(".timeline-item").forEach(item => {
-                gsap.to(item, {
-                    opacity: 1,
-                    y: 0,
-                    scale: 1,
-                    duration: 1,
-                    ease: "power2.out",
-                    scrollTrigger: {
-                        trigger: item,
-                        start: "top 80%",
-                        toggleActions: "play none none none"
+    <!-- Modal Container -->
+    <div id="modal-container" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div id="modal-text"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        © 2025 Mitthu Kumar. All Rights Reserved.
+    </footer>
+
+    <!-- Scripts with defer to improve loading performance -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" defer></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Initialize AOS
+            AOS.init({
+                once: true,
+                disable: 'mobile',
+                duration: 800
+            });
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('i');
+
+            // Apply saved theme
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+
+            // Theme toggle functionality
+            themeToggle.addEventListener('click', function () {
+                document.body.classList.toggle('light-mode');
+                const isDark = !document.body.classList.contains('light-mode');
+
+                // Save preference
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+                // Change icon
+                if (isDark) {
+                    themeIcon.classList.replace('fa-sun', 'fa-moon');
+                } else {
+                    themeIcon.classList.replace('fa-moon', 'fa-sun');
+                }
+            });
+
+            // Mobile Menu Toggle
+            const mobileMenu = document.getElementById("mobile-menu");
+            const navLinks = document.getElementById("nav-links");
+
+            mobileMenu.addEventListener("click", () => {
+                navLinks.classList.toggle("active");
+                mobileMenu.classList.toggle("active");
+            });
+
+            // Modal Logic
+            const modal = document.getElementById('modal-container');
+            const modalText = document.getElementById('modal-text');
+            const modalClose = document.querySelector('.modal-close');
+            const modalContent = document.querySelector('.modal-content');
+            const descriptions = {
+                'btech-modal': `
+    <h3>B.Tech in Computer Science</h3><br>
+<p>
+    Currently pursuing a Bachelor of Technology in Computer Science at Galgotias University (2024–2027). The program focuses on software development, core computer science concepts, and industry-relevant skills.
+</p><br>
+
+<p><b>Key Areas of Study:</b></p><br>
+<ul>
+    <li>Data Structures & Algorithms</li>
+    <li>Operating Systems & Computer Networks</li>
+    <li>Database Management Systems (DBMS)</li>
+    <li>Core Java & Object-Oriented Programming (OOP)</li>
+</ul><br>
+
+<p><b>Academic Highlights:</b></p><br>
+<ul>
+    <li>Actively working on real-world projects</li>
+    <li>Consistently maintaining strong academic performance</li>
+    <li>Focused on backend development and database integration</li>
+</ul>
+
+`,
+
+                'diploma-modal': `
+    <h3>Diploma in Computer Science</h3><br>
+<p>
+    Completed a Diploma in Computer Science from SVSU, Meerut (2021–2024), building a strong foundation in programming, data structures, web development, and core computer systems.
+</p><br>
+
+<p><b>Curriculum Highlights:</b></p><br>
+<ul>
+    <li>Basic & Intermediate Programming in Java, C, and Python</li>
+    <li>Database Management Systems & SQL</li>
+    <li>Web Development (HTML, CSS, JavaScript)</li>
+    <li>Computer Networks and Data Structures</li>
+</ul><br>
+
+<p><b>Academic Highlights:</b></p><br>
+<ul>
+    <li>Explored programming fundamentals through C and Python</li>
+    <li>Built simple static websites using HTML, CSS, and JavaScript</li>
+    <li>Gained foundational knowledge in DS and CN</li>
+</ul>
+
+
+`,
+
+                'android-modal': `
+    <h3>Android App Development (Ongoing)</h3><br>
+<p>
+    Currently learning Android App Development through an in-depth Udemy course, focusing on building modern and functional mobile apps using Kotlin and Android Studio.
+</p><br>
+
+<p><b>Key Learning Modules:</b></p><br>
+<ul>
+    <li>Android Studio setup & UI design using XML</li>
+    <li>Kotlin programming for Android</li>
+    <li>Basic Firebase integration & REST API usage</li>
+    <li>Debugging, testing, and real-device deployment</li>
+</ul><br>
+
+<p><b>Progress Highlights:</b></p><br>
+<ul>
+    <li>Practicing Kotlin and Android UI components through small exercises</li>
+    <li>Understanding activity lifecycle, layouts, and navigation</li>
+    <li>Learning about backend integration and Firebase basics</li>
+</ul>
+
+
+`,
+
+                'webdesign-modal': `
+                <h3>Responsive Web Design Certification</h3><br>
+    <p>Earned the Responsive Web Design Certification from FreeCodeCamp (Jan 2025), mastering modern frontend development techniques.</p><br>
+    <p><b>Skills Acquired:</b></p><br>
+    <ul>
+        <li>HTML5 and CSS3 fundamentals</li>
+        <li>Responsive design principles and media queries</li>
+        <li>Flexbox and CSS Grid layouts</li>
+        <li>CSS animations and transitions</li>
+    </ul><br>
+    <p><b>Projects Completed:</b></p><br>
+    <ul>
+        <li>Tribute Page - Perfect score</li>
+        <li>Survey Form - Perfect score</li>
+        <li>Product Landing Page - Perfect score</li>
+        <li>Technical Documentation - Perfect score</li>
+        <li>Personal Portfolio - Perfect score</li>
+    </ul>
+`,
+
+                'java-modal': `
+    <h3>Java & MySQL Certification</h3><br>
+<p>
+    Completed Java & MySQL Certification from Guvi (Nov 2024), with a strong focus on backend development using Java, Spring Boot, and database management with MySQL.
+</p><br>
+
+<p><b>Topics Covered:</b></p><br>
+<ul>
+    <li>Core Java Programming & OOP Concepts</li>
+    <li>Spring Boot Basics & Maven Build Tool</li>
+    <li>JDBC & MySQL Queries for Database Integration</li>
+    <li>Intro to REST API Development and CRUD Operations</li>
+</ul><br>
+
+<p><b>Project Work:</b></p><br>
+<ul>
+    <li>Built an Online Library Management System (Web App)</li>
+    <li>Integrated Java backend with MySQL for real-time data handling</li>
+    <li>Used Maven for project structuring and dependency management</li>
+</ul>
+
+`
+            };
+
+            // Open Modal
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.addEventListener('click', function () {
+                    const modalId = this.getAttribute('data-modal-id');
+                    if (descriptions[modalId]) {
+                        modalText.innerHTML = descriptions[modalId];
+                        modal.style.display = 'flex';
+                        setTimeout(() => {
+                            modalContent.classList.add('show');
+                        }, 10);
                     }
                 });
             });
+
+            // Close Modal
+            modalClose.addEventListener('click', () => {
+                modalContent.classList.remove('show');
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                }, 500);
+            });
+
+            // Close modal when clicking outside
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modalContent.classList.remove('show');
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                    }, 500);
+                }
+            });
+
+            // Add escape key support for modal
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.style.display === 'flex') {
+                    modalContent.classList.remove('show');
+                    setTimeout(() => {
+                        modal.style.display = 'none';
+                    }, 500);
+                }
+            });
+
+            // GSAP Timeline Animation enhancements
+            if (window.matchMedia('(min-width: 768px)').matches) {
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Apply subtle parallax to timeline items
+                document.querySelectorAll('.timeline-content').forEach((item, index) => {
+                    gsap.from(item, {
+                        y: 30,
+                        opacity: 0,
+                        duration: 0.8,
+                        scrollTrigger: {
+                            trigger: item,
+                            start: "top 80%",
+                            toggleActions: "play none none none"
+                        }
+                    });
+                });
+            }
         });
     </script>
 </body>
+
 </html>
